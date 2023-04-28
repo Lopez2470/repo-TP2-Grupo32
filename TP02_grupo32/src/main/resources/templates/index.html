@@ -1,80 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<title>Tienda de Mascotas - G32</title>
-	</head>
-	<body>
-		<header>
-			<img src="../static/images/logo.png" alt="Tienda De Mascotas">
-			<h1>TIENDA DE MASCOTAS</h1>
-			<p>Soluciones integrales para la atención de tus mascotas</p>
-			<p>Lo pedís, lo tenés - ENVIOS GRATIS</p>
-			<p>TIPS para mascotas felices</p>
-			<p>Adoptá a tu mascota</p>
-		</header>
-		
-		<nav>
-			<ul>
-				<li><a href="index.html" title="Página de Inicio">Inicio</a></li>
-				<li><a href="productos.html" title="Productos">Productos</a></li>
-				<li><a href="consejos.html" title="Consejos">Consejos de Salud</a></li>
-				<li><a href="servicio-de-paseo.html" title="Sevicio de Paseos">Servicio de Paseos</a></li>
-				<li><a href="sucursales.html" title="Sucursales">Sucursales</a></li>
-				<li><a href="contactos.html" title="Contactos">Contáctanos</a></li>
-			</ul>
-		</nav>
-		
-		<main>
-	    	<img src="../static/images/Tienda.jpg" alt="Quienes somos">
-	    	<section>
-	    		<article>
-	    			<h2>QUIENES SOMOS</h2>
-	    				<p>nace con el objetivo de dar a los animales y a sus propietarios todo lo que estos necesitan de una forma sencilla y a un precio inferior al resto de las webs. </p>
-	    				<p> Cuenta además con amparo y asesoramiento veterinario.</p>
-	            </article>
-	            <article>
-	                    <h2>MISION Y VISION</h2>
-	                    <h3>MISION</h3>
-	                    <img src="../static/images/Perrito.png" alt="Perrito" title="Nuestra Misión">
-	                    <p>Contribuimos a crear un mundo mejor, ayudando a amar y proteger a sus mascotas. 
-	                    <p>Basados en nuestro equipo de trabajo somos solidarios socialmente, 
-	                    brindando la mayor cantidad de trabajo posible, innovando constantemente y 
-	                    logrando un prestigio que nos haga perdurar en el tiempo.</p> 
-	                    <p>Invirtiendo e innovando en proyectos para ampliar la estructura y seguir creciendo en otras ciudades.</p> 
-	                    <p>Aportando y participando solidariamente para crear una comunidad inclusiva y el cuidado 
-	                    del medio ambiente.</p>
-	                    
-	                    <h3>VISION</h3>
-	                     <img src="../static/images/Gatito.png" alt="Gatito" title="Nuestra visión">
-	                    <p>Ser una empresa moderna y sólida, líder en el país y con proyección internacional.</p> 
-	                    <p>Liderada por un equipo con acceso a la más alta calidad de capacitación y con una 
-	                    mirada colaborativa e inclusiva.</p> 
-	              </article> 
-	        </section>
-	        <section>                  
-	              <article>
-	              	<h3>INFORMACION</h3>
-	              		<ul>
-							<li><a href="#">Condiciones de Envío</a></li>
-							<li><a href="#">Aviso legal</a></li>
-							<li><a href="#">Pago seguro</a></li>
-							<li><a href="#">Condiciones de uso</a></li>
-							<li><a href="#">Condiciones de Envío</a></li>
-							<li><a href="#">Privacidad</a></li>
-							<li><a href="#">Política de cookies</a></li>
-							<li><a href="#">Mapa del sitio</a></li>
-						</ul>
-					</article> 
-			</section>
-			<section>		
-					<article>
-						<a href="#">  <img src="../static/images/Promociones.png" alt="Promociones y Descuentos"></a>
-					</article>                                   
-	    	</section>
-	    </main>	
-	   	<footer>
-			<p><strong>Tienda de Mascotas</strong> - Grupo 32 - &lt;Programacion Visual&gt; -  &copy; Copyright  - Jujuy - Argentina.</p>
-		</footer>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="../static/css/estilos.css" />
+    <title>Tienda de Mascotas - G32</title>
+  </head>
+  <body>
+    <header>
+      <img src="../static/images/logo.png" alt="Tienda de Mascotas" />
+      <h1>TIENDA DE MASCOTAS</h1>
+      <p>
+        • Soluciones integrales para tus mascotas<br />
+        • Lo pedís, lo tenés - ENVÍOS GRATIS<br />
+        • TIPS para mascotas felices<br />
+        • Adoptá a tu mascota
+      </p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="index.html" title="Página de Inicio">Inicio</a></li>
+        <li><a href="productos.html" title="Productos">Productos</a></li>
+        <li>
+          <a href="consejos.html" title="Consejos">Consejos de Salud</a>
+        </li>
+        <li>
+          <a href="servicio-de-paseo.html" title="Servicio de Paseos"
+            >Servicio de Paseos</a
+          >
+        </li>
+        <li><a href="sucursales.html" title="Sucursales">Sucursales</a></li>
+        <li><a href="contactos.html" title="Contactos">Contáctanos</a></li>
+      </ul>
+    </nav>
+    <div class="container">
+      <main>
+        <div class="backgnd-especial">
+          <img
+            class="img-destacada"
+            src="../static/images/Tienda-transp.png"
+            alt="Quienes somos"
+          />
+        </div>
+        <section>
+          <article>
+            <h2>QUIÉNES SOMOS</h2>
+            <p>
+              Tienda de Mascotas nace con el objetivo de dar a los animales y a
+              sus propietarios todo lo que estos necesitan, de una forma
+              sencilla y a un precio inferior al resto de las otras tiendas.
+            </p>
+            <p>Cuenta además con amparo y asesoramiento veterinario.</p>
+          </article>
+          <article>
+            <h2 class="esp-sup">MISIÓN Y VISIÓN</h2>
+            <div class="caja-img-titulo">
+              <img
+                src="../static/images/Perrito.png"
+                alt="Perrito"
+                title="Nuestra Misión"
+              />
+              <h3>MISIÓN</h3>
+            </div>
+            <p>
+              Contribuimos a crear un mundo mejor, ayudando a amar y proteger a
+              sus mascotas.
+            </p>
+            <p>
+              Basados en nuestro equipo de trabajo somos solidarios socialmente,
+              brindando la mayor cantidad de trabajo posible, innovando
+              constantemente y logrando un prestigio que nos haga perdurar en el
+              tiempo.
+            </p>
+            <p>
+              Invirtiendo e innovando en proyectos para ampliar la estructura y
+              seguir creciendo en otras ciudades.
+            </p>
+            <p>
+              Aportando y participando solidariamente para crear una comunidad
+              inclusiva y el cuidado del medio ambiente.
+            </p>
+
+            <div class="caja-img-titulo">
+              <img
+                src="../static/images/Gatito.png"
+                alt="Gatito"
+                title="Nuestra visión"
+              />
+              <h3>VISIÓN</h3>
+            </div>
+            <p>
+              Ser una empresa moderna y sólida, líder en el país y con
+              proyección internacional.
+            </p>
+            <p>
+              Liderada por un equipo con acceso a la más alta calidad de
+              capacitación y con una mirada colaborativa e inclusiva.
+            </p>
+          </article>
+        </section>
+        <section>
+          <article>
+            <h3 class="esp-sup">INFORMACIÓN</h3>
+            <ul>
+              <li><a href="#">Condiciones de Envío</a></li>
+              <li><a href="#">Aviso legal</a></li>
+              <li><a href="#">Pago seguro</a></li>
+              <li><a href="#">Condiciones de uso</a></li>
+              <li><a href="#">Condiciones de Envío</a></li>
+              <li><a href="#">Privacidad</a></li>
+              <li><a href="#">Política de cookies</a></li>
+              <li><a href="#">Mapa del sitio</a></li>
+            </ul>
+          </article>
+        </section>
+        <section>
+          <article>
+            <a href="#">
+              <img
+                src="../static/images/Promociones.png"
+                alt="Promociones y descuentos"
+            /></a>
+          </article>
+        </section>
+      </main>
+    </div>
+    <footer>
+      <p>
+        <strong>Tienda de Mascotas</strong> - Grupo 32 - &lt;Programación
+        Visual&gt; - &copy; Copyright - Jujuy - Argentina.
+      </p>
+    </footer>
+  </body>
 </html>
