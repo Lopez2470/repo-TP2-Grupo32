@@ -146,3 +146,49 @@ footer {
   color: #fff;
   text-align: center;
 }
+
+/*cuidados.html*/
+.img-cuidados01 {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	border-style: ridge;
+}
+.img-cuidados02 {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	border-style: groove;
+}
+.img-cuidados03{
+	width: 50%;
+	float: left;
+}
+
+.separador01{
+	height:15px;
+	clear: both;
+}
+
+hr {
+	height: 3px;
+	background-color: orange;
+	border-color: yellow;
+	margin-bottom: 25px;
+	margin-top: 25px;
+}
+
+a {
+	color: black;
+}
+a:visited {
+	color: black;
+}
+a:hover {
+	color: orange;
+}
+a:active {
+	color: highlight;
+}
