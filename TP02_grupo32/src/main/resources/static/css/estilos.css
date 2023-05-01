@@ -229,3 +229,46 @@ tr:active{
 .resaltar{
 	font-weight: bold;	
 }
+
+.formContacto{
+	background-color: white;
+	padding:15px;
+	color: #999;
+	font: 0.8em;
+	border-radius: 3px;
+	margin : 0 auto;
+	width: 320px;
+	
+}
+.tablaContacto{
+	border:4px; 
+	border-color: "#050505" ;
+	background-color:"#FFF8C7";
+	text-align: center;
+	margin : 0 auto;
+}
+	
+.field{
+	border: solid 1px #ccc;
+	padding: 10px;
+	width:300px;
+	margin : 0 auto;
+}
+.field:focus{
+	border-color: #18A383;
+}
+.btn-green{
+	width: 200px;
+	height: 30px;
+	size:42;
+	align-items: center;
+	border-radius: 9px;
+	background-color: #89B7FE;
+	color:white;
+}
+.h4cont{
+	text-align: center;
+}
+.secSucursal{
+	margin-left: 85px;
+}
