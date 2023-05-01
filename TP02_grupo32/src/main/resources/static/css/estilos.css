@@ -193,17 +193,82 @@ a:active {
 	color: highlight;
 }
 
-/*Para las listas productos*/
-.listas {
-    display: flex;
-    flex-wrap: wrap;
+/*servicios-de-paseo*/
+.tabla-servicios {
+	width: 100%;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	border-radius: 3px;
+	border:double;
+	border-collapse: collapse;
+}
+.tabla-servicios td,th{
+	border: 2px double black;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
 }
 
-.lista {
-    flex-basis: 50%;
+.tabla-servicios th{
+	background: #006699;
+	color: white;	
 }
 
-ul {
-    list-style: none;
-    margin: 0;
-   
+tr:hover{
+	background-color: #0099cc;
+	color: white;
+}
+
+tr:active{
+	background-color: #00394d;
+	color: white;
+}
+
+.resaltar{
+	font-weight: bold;	
+}
+
+.formContacto{
+	background-color: white;
+	padding:15px;
+	color: #999;
+	font: 0.8em;
+	border-radius: 3px;
+	margin : 0 auto;
+	width: 320px;
+	
+}
+.tablaContacto{
+	border:4px; 
+	border-color: "#050505" ;
+	background-color:"#FFF8C7";
+	text-align: center;
+	margin : 0 auto;
+}
+	
+.field{
+	border: solid 1px #ccc;
+	padding: 10px;
+	width:300px;
+	margin : 0 auto;
+}
+.field:focus{
+	border-color: #18A383;
+}
+.btn-green{
+	width: 200px;
+	height: 30px;
+	size:42;
+	align-items: center;
+	border-radius: 9px;
+	background-color: #89B7FE;
+	color:white;
+}
+.h4cont{
+	text-align: center;
+}
+.secSucursal{
+	margin-left: 85px;
+}
