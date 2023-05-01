@@ -272,3 +272,18 @@ tr:active{
 .secSucursal{
 	margin-left: 85px;
 }
+
+/*Para las listas productos*/
+.listas {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lista {
+    flex-basis: 50%;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+}
