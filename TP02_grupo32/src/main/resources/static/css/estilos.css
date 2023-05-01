@@ -192,3 +192,18 @@ a:hover {
 a:active {
 	color: highlight;
 }
+
+/*Para las listas productos*/
+.listas {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lista {
+    flex-basis: 50%;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+   
