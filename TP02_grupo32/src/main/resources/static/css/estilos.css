@@ -192,3 +192,40 @@ a:hover {
 a:active {
 	color: highlight;
 }
+
+/*servicios-de-paseo*/
+.tabla-servicios {
+	width: 100%;
+	margin-top: 25px;
+	margin-bottom: 25px;
+	border-radius: 3px;
+	border:double;
+	border-collapse: collapse;
+}
+.tabla-servicios td,th{
+	border: 2px double black;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.tabla-servicios th{
+	background: #006699;
+	color: white;	
+}
+
+tr:hover{
+	background-color: #0099cc;
+	color: white;
+}
+
+tr:active{
+	background-color: #00394d;
+	color: white;
+}
+
+.resaltar{
+	font-weight: bold;	
+}
