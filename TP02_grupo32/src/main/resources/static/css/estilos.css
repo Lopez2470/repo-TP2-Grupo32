@@ -1,0 +1,199 @@
+/* Incorporar fuentes de Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Atma:wght@500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap");
+
+/* Inicialización básica o reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Definir fuente y tamaño junto al color de fondo y texto */
+body {
+  font-size: 1.1rem;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #272b30;
+  background: #f8f8f8;
+}
+p {
+  margin-bottom: 0.7rem;
+}
+
+/* Definir la fuente y color para los títulos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Atma", cursive;
+  color: #273fa0;
+}
+
+/* Definir los tamaños de los títulos */
+h1 {
+  font-size: 2.6rem;
+}
+
+h2 {
+  font-size: 2.1rem;
+}
+
+h3 {
+  font-size: 1.85rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.35rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+}
+
+/* Configuración para ocultar el h1 y que se muestre la descripción del header */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 10px 0 50px 0;
+  background-color: #ffe01a;
+  background-image: url("../images/patron-background-sm.png");
+  background-repeat: repeat;
+}
+
+header h1 {
+  position: absolute;
+  display: none;
+}
+
+header p {
+  position: absolute;
+  margin-top: 160px;
+  margin-left: 300px;
+  font-family: "Atma", cursive;
+  font-weight: 600;
+  line-height: 1.4rem;
+  color: #273fa0;
+}
+
+.container {
+  width: 860px;
+  margin: 0 auto;
+}
+
+nav {
+  background-color: #ff6a00;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 8px;
+}
+
+nav a {
+  display: block;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.caja-img-titulo {
+  display: flex; /* Crea un flexbox para contener una imagen con un texto */
+  align-items: center; /* Centra verticalmente los elementos dentro del flexbox */
+  padding: 5px 0 0 20px;
+  background-image: linear-gradient(to bottom, #ffffff, #faebd7);
+  border-bottom: 2px solid #ff6a00;
+  margin: 30px 0 20px;
+}
+.caja-img-titulo img {
+  margin-right: 30px; /* Espacio entre la imagen y el texto */
+}
+
+.img-destacada {
+  display: block; /* para que la imagen se comporte como un bloque y se pueda centrar horizontalmente */
+  margin: 20px auto; /* centrar horizontalmente la imagen */
+  width: 400px; /* ancho de la imagen */
+  height: auto; /* para que la altura se ajuste proporcionalmente al ancho */
+}
+
+.esp-sup {
+  margin-top: 40px;
+}
+.backgnd-especial {
+  background-image: radial-gradient(circle, #ffffff, #f8f8f8);
+}
+
+footer {
+  bottom: 0;
+  padding-top: 25px;
+  width: 100%;
+  height: 70px;
+  background-color: #273fa0;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+
+
+.formContacto{
+	background-color: white;
+	padding:15px;
+	color: #999;
+	font: 0.8em;
+	border-radius: 3px;
+	margin : 0 auto;
+	width: 320px;
+	border-color: ;
+}
+.tablaContacto{
+	border:4px; 
+	border-color: "#050505" ;
+	background-color:"#FFF8C7";
+	text-align: center;
+	margin : 0 auto;
+}
+input,textarea{
+	border:1;
+	
+
+}
+.field{
+	border: solid 1px #ccc;
+	padding: 10px;
+	width:300px;
+	margin : 0 auto;
+}
+.field:focus{
+	border-color: #18A383;
+}
+.btn-green{
+	width: 200px;
+	height: 30px;
+	size:42;
+	align-items: center;
+	border-radius: 9px;
+	background-color: #89B7FE;
+	color:white;
+}
+.h4cont{
+	text-align: center;
+}
+.secSucursal{
+	margin-left: 85px;
+}
