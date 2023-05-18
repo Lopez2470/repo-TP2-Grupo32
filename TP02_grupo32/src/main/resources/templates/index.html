@@ -1,44 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../static/css/estilos.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="../static/css/estilos.css" /> -->
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
     <title>Tienda de Mascotas - G32</title>
   </head>
   <body>
-    <header>
-      <img src="../static/images/logo.png" alt="Tienda de Mascotas" />
-      <h1>TIENDA DE MASCOTAS</h1>
-      <p>
-        • Soluciones integrales para tus mascotas<br />
-        • Lo pedís, lo tenés - ENVÍOS GRATIS<br />
-        • TIPS para mascotas felices<br />
-        • Adoptá a tu mascota
-      </p>
-    </header>
-
-    <nav>
-      <ul>
-        <li><a href="index.html" title="Página de Inicio">Inicio</a></li>
-        <li><a href="productos.html" title="Productos">Productos</a></li>
-        <li>
-          <a href="consejos.html" title="Consejos">Consejos de Salud</a>
-        </li>
-        <li>
-          <a href="servicio-de-paseo.html" title="Servicio de Paseos"
-            >Servicio de Paseos</a
-          >
-        </li>
-        <li><a href="sucursales.html" title="Sucursales">Sucursales</a></li>
-        <li><a href="contactos.html" title="Contactos">Contáctanos</a></li>
-      </ul>
-    </nav>
+    <header th:replace="~{layouts/header :: header}"></header>
+    <nav th:replace="~{layouts/nav :: nav}"></nav>
     <div class="container">
       <main>
         <div class="backgnd-especial">
           <img
             class="img-destacada"
-            src="../static/images/Tienda-transp.png"
+            src="/images/Tienda-transp.png"
             alt="Quienes somos"
           />
         </div>
@@ -56,7 +33,7 @@
             <h2 class="esp-sup">MISIÓN Y VISIÓN</h2>
             <div class="caja-img-titulo">
               <img
-                src="../static/images/Perrito.png"
+                src="/images/Perrito.png"
                 alt="Perrito"
                 title="Nuestra Misión"
               />
@@ -83,7 +60,7 @@
 
             <div class="caja-img-titulo">
               <img
-                src="../static/images/Gatito.png"
+                src="/images/Gatito.png"
                 alt="Gatito"
                 title="Nuestra visión"
               />
@@ -118,18 +95,13 @@
           <article>
             <a href="#">
               <img
-                src="../static/images/Promociones.png"
+                src="/images/Promociones.png"
                 alt="Promociones y descuentos"
             /></a>
           </article>
         </section>
       </main>
     </div>
-    <footer>
-      <p>
-        <strong>Tienda de Mascotas</strong> - Grupo 32 - &lt;Programación
-        Visual&gt; - &copy; Copyright - Jujuy - Argentina.
-      </p>
-    </footer>
+    <footer th:replace="~{layouts/footer :: footer}"></footer>
   </body>
 </html>

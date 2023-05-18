@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<nav th:fragment="nav">
+			<ul>
+		        <li><a th:href="@{/inicio}" title="Página de Inicio">Inicio</a></li>
+		        <li><a th:href="@{/productos}" title="Productos">Productos</a></li>
+		        <li><a th:href="@{/consejos}" title="Consejos">Consejos de Salud</a></li>
+		        <li><a th:href="@{/servicio-de-paseo}" title="Servicio de Paseos">Servicio de Paseos</a></li>
+		        <li><a th:href="@{/sucursales}" title="Sucursales">Sucursales</a></li>
+		        <li><a th:href="@{/contactos}" title="Contactos">Contáctanos</a></li>
+	       </ul>
+		</nav>
+	</body>
+</html>
