@@ -5,12 +5,33 @@
 	</head>
 	<body>
 		<nav th:fragment="nav">
-			<ul>
+			<ul class="menu-horizontal">
 		        <li><a th:href="@{/inicio}" title="Página de Inicio">Inicio</a></li>
-		        <li><a th:href="@{/productos}" title="Productos">Productos</a></li>
-		        <li><a th:href="@{/consejos}" title="Consejos">Consejos de Salud</a></li>
-		        <li><a th:href="@{/servicio-de-paseo}" title="Servicio de Paseos">Servicio de Paseos</a></li>
-		        <li><a th:href="@{/sucursales}" title="Sucursales">Sucursales</a></li>
+		        <li><a th:href="@{/producto}" title="Productos">Productos</a> 
+				<ul class="menu-vertical">
+					<li><a th:href="@{/producto/listado}" title="Listado de Productos">Listado</a></li>
+					<li><a th:href="@{/producto/nuevo}" title="Nuevo Producto">Nuevo</a></li> 
+					
+				</ul>
+				</li>
+		        <li><a th:href="@{/consejo}" title="Consejos">Consejos de Salud</a>
+			         <ul class="menu-vertical">
+						<li><a th:href="@{/consejo/listado}" title="Listado de Consejos">Listado</a></li>
+						<li><a th:href="@{/consejo/nuevo}" title="Nuevo Consejo">Nuevo</a></li> 
+					</ul>
+				</li>
+		        <li><a th:href="@{/servicio}" title="Servicio de Paseos">Servicio de Paseos</a>
+			        <ul class="menu-vertical">
+						<li><a th:href="@{/servicio/listado}" title="Listado de Consejos">Listado</a></li>
+						<li><a th:href="@{/servicio/nuevo}" title="Nuevo Consejo">Nuevo</a></li> 
+					</ul>
+				</li>	
+		        <li><a th:href="@{/sucursales}" title="Sucursales">Sucursales</a>
+			        <ul class="menu-vertical">
+						<li><a th:href="@{#}" title="Listado de Sucursales">Listado</a></li>
+						<li><a th:href="@{#}" title="Nueva Sucursal">Nuevo</a></li> 
+					</ul>
+				</li>
 		        <li><a th:href="@{/contactos}" title="Contactos">Contáctanos</a></li>
 	       </ul>
 		</nav>

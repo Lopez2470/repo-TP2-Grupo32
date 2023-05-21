@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	<head>
+	  <meta charset="UTF-8" />
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" th:href="@{/css/estilos.css}">
+	</head>
+	<body>
+	  <header th:replace="~{layouts/header :: header}"></header>
+	  <nav th:replace="~{layouts/nav :: nav}"></nav>
+	  <div class="container">
+		<main>
+			<h2>Consejos - Listado</h2>
+			<table>
+		 	   <tr>
+				  <th>Codigo</th>
+				  <th>Titulo</th>
+				  <th>Contenido</th>
+				  <th>Fecha Public.</th>
+				  <th>Autor</th>
+				  <th>Categoria</th>
+				  <th>Acciones</th>
+			   </tr>
+			   <tr th:each="consej: ${consejos}">
+			       <td th:text="${consej.codigoConsejo}"></td>
+				   <td th:text="${consej.tituloConsejo}"></td>
+				   <td th:text="${consej.contenidoConsejo}"></td>
+				   <td th:text="${#temporals.format(consej.fechaPublicacionConsejo, 'dd-MM-yyyy')}"></td>
+				   <td th:text="${consej.autorConsejo}"></td>
+				   <td th:text="${consej.categoriaConsejo}"></td>
+				   <td>	   
+					  <a th:href="@{/consejo/modificar/}+${consej.codigoConsejo}">Editar</a>
+					  <a th:href="@{/consejo/eliminar/}+ ${consej.codigoConsejo}">Eliminar</a>
+				   </td>
+			   </tr>
+		    </table>	
+		 </main>
+	  </div>
+	  <footer th:replace="~{layouts/footer :: footer}"></footer>
+	</body>
+</html>
