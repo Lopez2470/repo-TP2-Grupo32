@@ -85,30 +85,63 @@ header p {
 .container {
   width: 860px;
   margin: 0 auto;
-}
-
+  }
+  
+/*NAV MODIFICADO*/  
 nav {
   background-color: #ff6a00;
 }
 
-nav ul {
-  list-style-type: none;
+.menu-horizontal{
+  list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
 }
 
-nav li {
-  margin: 0 8px;
+.menu-horizontal > li > a{
+	display: block;
+	padding: 8px;
+	text-decoration: none;
+	color: white;
+	font-weight: 600;
+	margin: 0 8px;
 }
 
-nav a {
-  display: block;
-  color: white;
-  padding: 8px;
-  text-decoration: none;
-  font-weight: 600;
+/*.menu-horizontal > li:hover{
+	background-color: #ff9900;
+}*/
+.menu-vertical{
+	position: absolute;
+	display: none;
+	list-style: none;
+	/*background-color: #CC673B;*/
+	font-weight: 600;
+	margin: 0 8px;
+	opacity:0.8;
+}
+.menu-horizontal li:hover .menu-vertical{
+	display: block;
+	background-color:#ff6a00;
+}
+.menu-horizontal li a:hover{
+	color:#0000ff;
+}
+
+.menu-vertical li a{
+	display: block;
+	color: white;
+	text-decoration: none;
+	padding: 8px;
+	font-weight: 600;
+	margin: 0 8px;
+}
+
+.menu-vertical li a:hover{
+	background: #ffebcc;
+	color: #0000ff;
+	padding: 8px;
 }
 
 .caja-img-titulo {
