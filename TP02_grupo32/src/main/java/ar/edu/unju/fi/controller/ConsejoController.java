@@ -76,4 +76,15 @@ public class ConsejoController {
 		}
 		return "redirect:/consejo/listado";
 	}
+	
+	@GetMapping("consejo/eliminar/{codigoConsejo}")
+	public String eliminarConsejo(@PathVariable(value="codigoConsejo") int codigoConsejo) {
+		for(Consejo conse : listaConsejos.getConsejos()) {
+			if (conse.getCodigoConsejo() == codigoConsejo) {
+				listaConsejos.getConsejos().remove(conse);
+				break;
+			}
+		}
+		return "redirect:/consejo/listado";
+	}
 }
