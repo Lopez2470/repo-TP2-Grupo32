@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -43,4 +44,32 @@ public class ProductoController {
 		/*return model;*/
 		return"redirect:/producto/listado";
 	}
+	
+	@GetMapping("/modificar/{codigoProd}")
+	public String getModificarProductoPage(Model model, @PathVariable(value = "codigoProd") int codigoProd) {
+		Producto productoEncontrado = new Producto();
+		for(Producto prod : listaProductos.getProductos()){
+			if(prod.getCodigoProducto() == codigoProd) {
+				productoEncontrado = prod;
+				break;
+			}
+		}
+		model.addAttribute("producto", productoEncontrado);
+		return"productos-modificar";
+	}	
+	
+	@PostMapping("/modificar")
+	public String modificarProducto(@ModelAttribute("producto")Producto producto) {
+		for(Producto prod : listaProductos.getProductos()){
+			if(prod.getCodigoProducto() == producto.getCodigoProducto()) {
+				prod.setNombreProducto(producto.getNombreProducto());
+				prod.setPrecioProducto(producto.getPrecioProducto());
+				prod.setCategoriaProducto(producto.getCategoriaProducto());
+				prod.setDescuentoProducto(producto.getDescuentoProducto());
+				break;
+			}
+		}
+		return"redirect:/producto/listado";
+	}
+	
 }
