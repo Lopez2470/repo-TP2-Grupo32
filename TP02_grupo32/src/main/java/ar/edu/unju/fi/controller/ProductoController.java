@@ -72,4 +72,15 @@ public class ProductoController {
 		return"redirect:/producto/listado";
 	}
 	
+	@GetMapping("/eliminar/{codigoProducto}")
+	public String eliminarProducto(@PathVariable(value="codigoProducto") int codigoProducto) {
+		for(Producto prod : listaProductos.getProductos()) {
+			if (prod.getCodigoProducto() == codigoProducto) {
+				listaProductos.getProductos().remove(prod);
+				break;
+			}
+		}
+		return "redirect:/producto/listado";
+	}
+
 }
