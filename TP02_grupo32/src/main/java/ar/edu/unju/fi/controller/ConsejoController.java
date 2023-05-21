@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.model.Consejo;
-import ar.edu.unju.fi.model.Servicio;
+
 
 @Controller
 @RequestMapping("/")
@@ -29,5 +29,51 @@ public class ConsejoController {
 	public String getListadoConsejoPage(Model model) {
 		model.addAttribute("consejos", listaConsejos.getConsejos());
 		return "consejos-listado";
+	}
+	
+	@GetMapping("consejo/nuevo")
+	public String getNuevoConsejo(Model model) {
+		boolean edicion = false;
+		model.addAttribute("consejo", new Consejo());
+		model.addAttribute("edicion", edicion);
+		return"consejos-nuevo";
+	}
+	
+	@PostMapping("consejo/guardar")
+	public String getGuardarConsejoPage(@ModelAttribute("consejo")Consejo consejo){
+		ModelAndView modelView = new ModelAndView("consejos");
+		listaConsejos.getConsejos().add(consejo);
+		modelView.addObject("consejos", listaConsejos.getConsejos());
+		return"redirect:/consejo/listado";
+	}
+	
+	@GetMapping("consejo/modificar/{codigoConsejo}")
+	public String getModificarConsejo(Model model, @PathVariable(value = "codigoConsejo") int codigoConsejo) {
+		Consejo consejoEncontrado = new Consejo();
+		boolean edicion=true;
+		for(Consejo conse : listaConsejos.getConsejos()){
+			if(conse.getCodigoConsejo() == codigoConsejo) {
+				consejoEncontrado = conse;
+				break;
+			}
+		}
+		model.addAttribute("consejo", consejoEncontrado);
+		model.addAttribute("edicion", edicion);
+		return"consejos-nuevo";
+	}	
+	
+	@PostMapping("consejo/modificar")
+	public String modificarConsejo(@ModelAttribute("consejo") Consejo consejo) {
+		for(Consejo conse : listaConsejos.getConsejos()) {
+			if(conse.getCodigoConsejo() == consejo.getCodigoConsejo()) {
+				conse.setTituloConsejo(consejo.getTituloConsejo());
+				conse.setContenidoConsejo(consejo.getContenidoConsejo());
+				conse.setFechaPublicacionConsejo(consejo.getFechaPublicacionConsejo());
+				conse.setAutorConsejo(consejo.getAutorConsejo());
+				conse.setCategoriaConsejo(consejo.getCategoriaConsejo());
+				break;
+			}
+		}
+		return "redirect:/consejo/listado";
 	}
 }
