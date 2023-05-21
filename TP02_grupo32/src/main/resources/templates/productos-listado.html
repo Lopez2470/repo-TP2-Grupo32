@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	 <head>
+	    <meta charset="UTF-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+	 </head>
+	 <body>
+	    <header th:replace="~{layouts/header :: header}"></header>
+	    <nav th:replace="~{layouts/nav :: nav}"></nav>
+		<div class="container">
+			<main>
+				<h1>Listado de Productos</h1>
+				<table>
+					<tr>
+						<th>Codigo Prod</th>
+						<th>Nombre Prod</th>
+						<th>Precio</th>
+						<th>Categoria</th>
+						<th>Descuento</th>
+						<th>Acciones</th>
+					</tr>
+					<tr th:each="produ: ${productos}">
+						<td th:text="${produ.codigoProducto}"></td>
+						<td th:text="${produ.nombreProducto}"></td>
+						<td th:text="${produ.precioProducto}"></td>
+						<td th:text="${produ.categoriaProducto}"></td>
+						<td th:text="${produ.calcularDescuento()}"></td>
+						<td>
+							<a th:href="@{/producto/modificar/}+${produ.codigoProducto}">Editar</a>
+							<a th:href="@{/producto/eliminar/}+ ${produ.codigoProducto}">Eliminar</a>
+						</td>
+					</tr>
+				</table>
+				
+		    </main>
+		</div>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</body>
+</html>
