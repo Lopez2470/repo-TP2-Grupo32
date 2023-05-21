@@ -75,4 +75,16 @@ public class ServicioControler {
 		return "redirect:/servicio/listado";
 	}
 	
+	@GetMapping("servicio/eliminar/{codigoServicio}")
+	public String eliminarServicio(@PathVariable(value="codigoServicio") int codigoServicio) {
+		for(Servicio serv : listaServicios.getServicios()) {
+			if (serv.getCodigoServ() == codigoServicio) {
+				listaServicios.getServicios().remove(serv);
+				break;
+			}
+		}
+		return "redirect:/servicio/listado";
+	}
+
+
 }
