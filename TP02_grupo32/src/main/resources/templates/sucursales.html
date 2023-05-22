@@ -1,39 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../static/css/estilos.css" />
-    	<title>Tienda de Mascotas - G32</title>
+		<meta charset="UTF-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- <link rel="stylesheet" href="../static/css/estilos.css" /> -->
+	    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+	    <title>Tienda de Mascotas - G32</title>
 	</head>
 	<body >		
-		<header>
-		     <img src="../static/images/logo.png" alt="Tienda de Mascotas" />
-		     <h1>TIENDA DE MASCOTAS</h1>
-		     <p>
-		        • Soluciones integrales para tus mascotas<br />
-		        • Lo pedís, lo tenés - ENVÍOS GRATIS<br />
-		        • TIPS para mascotas felices<br />
-		        • Adoptá a tu mascota
-		     </p>
-		 </header>
-		  <center>
-			<nav>
-		      <ul>
-		        <li><a href="index.html" title="Página de Inicio">Inicio</a></li>
-		        <li><a href="productos.html" title="Productos">Productos</a></li>
-		        <li>
-		          <a href="consejos.html" title="Consejos">Consejos de Salud</a>
-		        </li>
-		        <li>
-		          <a href="servicio-de-paseo.html" title="Servicio de Paseos"
-		            >Servicio de Paseos</a
-		          >
-		        </li>
-		        <li><a href="sucursales.html" title="Sucursales">Sucursales</a></li>
-		        <li><a href="contactos.html" title="Contactos">Contáctanos</a></li>
-		      </ul>
-		    </nav>
-		  </center>
+		 <header th:replace="~{layouts/header :: header}"></header>
+    	 <nav th:replace="~{layouts/nav :: nav}"></nav>
+		  
 		<br>
 		<section class="secSucursal">
 		
@@ -59,16 +36,10 @@
 				<p>perico 99 - Perico</p>
 				<p>Tel: 388 - 4247896</p>
 			</p><br>
-		</section class="secSucursal">
-		<aside>
-			<p></p>
-		</aside>
+		</section>
+		
+		
+
 		<br>
-		<footer>
-			<center>
-			 	<p>
-			 	 Copyright 2023 - Sucursales - Diseñado por Grupo 32 - Jujuy - Republica Argentina
-			 	</p>
-			</center>	
-		 </footer>
-	</body style="background -color:">
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</body>
