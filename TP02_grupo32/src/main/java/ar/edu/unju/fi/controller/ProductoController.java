@@ -13,29 +13,32 @@ import ar.edu.unju.fi.listas.ListaProducto;
 import ar.edu.unju.fi.model.Producto;
 
 @Controller
-@RequestMapping("/producto")
+/*@RequestMapping("/producto")*/
+@RequestMapping("/")
 public class ProductoController {
 	
 	ListaProducto listaProductos = new ListaProducto();
 	
-	@GetMapping("/producto")
+	@GetMapping("producto")
 	public String getIndex() {
 		return "productos";
 	}
-	
-	@GetMapping("/listado")
+	@GetMapping("producto/listado")
+	/*@GetMapping("/listado")*/
 	public String getListadoProductoPage(Model model) {
 		model.addAttribute("productos", listaProductos.getProductos());
 		return "productos-listado";
 	}
 	
-	@GetMapping("/nuevo")
+	@GetMapping("producto/nuevo")
+	/*@GetMapping("/nuevo")*/
 	public String getNuevoProducto(Model model) {
 		model.addAttribute("producto", new Producto());
 		return"productos-nuevo";
 	}
 	
-	@PostMapping("/guardar")
+	@PostMapping("producto/guardar")
+	/*@PostMapping("/guardar")*/
 	/* public model getGuardarProductoPage(@ModelAttribute("producto")Producto producto){ */
 	public String getGuardarProductoPage(@ModelAttribute("producto")Producto producto){
 		ModelAndView modelView = new ModelAndView("productos");
@@ -45,7 +48,8 @@ public class ProductoController {
 		return"redirect:/producto/listado";
 	}
 	
-	@GetMapping("/modificar/{codigoProd}")
+	@GetMapping("producto/modificar/{codigoProd}")
+	/*@GetMapping("/modificar/{codigoProd}")*/
 	public String getModificarProductoPage(Model model, @PathVariable(value = "codigoProd") int codigoProd) {
 		Producto productoEncontrado = new Producto();
 		for(Producto prod : listaProductos.getProductos()){
@@ -58,7 +62,8 @@ public class ProductoController {
 		return"productos-modificar";
 	}	
 	
-	@PostMapping("/modificar")
+	@PostMapping("producto/modificar")
+	/*@PostMapping("/modificar")*/
 	public String modificarProducto(@ModelAttribute("producto")Producto producto) {
 		for(Producto prod : listaProductos.getProductos()){
 			if(prod.getCodigoProducto() == producto.getCodigoProducto()) {
@@ -72,7 +77,8 @@ public class ProductoController {
 		return"redirect:/producto/listado";
 	}
 	
-	@GetMapping("/eliminar/{codigoProducto}")
+	@GetMapping("producto/eliminar/{codigoProducto}")
+	/*@GetMapping("/eliminar/{codigoProducto}")*/
 	public String eliminarProducto(@PathVariable(value="codigoProducto") int codigoProducto) {
 		for(Producto prod : listaProductos.getProductos()) {
 			if (prod.getCodigoProducto() == codigoProducto) {

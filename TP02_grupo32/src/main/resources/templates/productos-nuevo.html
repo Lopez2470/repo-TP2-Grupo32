@@ -11,7 +11,7 @@
 		<div class="container">
 			<main>
 				<h3>Nuevo Producto</h3>
-				<form th:action="@{/producto/guardar}" th:object="${producto}" method="post">
+				<form class="form-nuevo" th:action="@{/producto/guardar}" th:object="${producto}" method="post">
 					<label for="codigo">Código</label>
 					<input type="number" id="codigo" name="producto_codigo" th:field="*{codigoProducto}"><br><br>
 					<label for="nombre">Nombre</label>

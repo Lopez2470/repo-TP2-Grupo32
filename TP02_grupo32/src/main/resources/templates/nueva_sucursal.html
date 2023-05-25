@@ -15,7 +15,7 @@
     	 	<section id="content">
     	 		<h3 th:text="${edicion}?'Modificar Sucursal':'Nueva Sucursal'"></h3>
     	 		
-    	 		<form th:action="${edicion}?@{/sucursal/modificar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
+    	 		<form class="form-nuevo" th:action="${edicion}?@{/sucursal/modificar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
     	 			<label for="nombre">Nombre</label>
     	 			<input type="text" id="nombre" name="sucursal_nombre" th:field="*{nombre}"><br><br>
     	 			<label for="direccion">Direccion</label>
