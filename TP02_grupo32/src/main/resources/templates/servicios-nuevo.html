@@ -11,7 +11,7 @@
 		<div class="container">
 			<main>
 				<h3 th:text="${edicion}?'Modificar Servicio':'Nuevo Servicio'"></h3>
-				<form th:action="${edicion}?@{/servicio/modificar}:@{/servicio/guardar}" th:object="${servicio}" method="post">
+				<form class="form-nuevo" th:action="${edicion}?@{/servicio/modificar}:@{/servicio/guardar}" th:object="${servicio}" method="post">
 					<label for="codigo">Código del Servicio</label>
 					<input type="number" id="codigo" name="servicio_codigo" th:field="*{codigoServ}" th:readonly="${edicion}?'readonly'"><br><br>
 					<label for="nombre">Nombre del Servicio</label>

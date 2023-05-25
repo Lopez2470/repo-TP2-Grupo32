@@ -316,7 +316,96 @@ tr:active{
     flex-basis: 50%;
 }
 
+
 ul {
     list-style: none;
     margin: 0;
+}
+/*Tablas Listados*/
+
+.tabla-listados{
+	text-align: left;
+	border-collapse: collapse;
+	margin-bottom: 12px;
+}
+
+.tabla-listados th, td{
+	padding: 8px;
+	/*height: 20px;*/
+}
+
+.tabla-listados th{
+	background-color: #006699;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+}
+
+.tabla-listados tr:nth-child(even){
+	background-color: #ddd;
+}
+
+.tabla-listados tr:hover td{
+	background-color: #0099cc;
+	color: white;
+
+}
+/*Formulario Nuevo-Modificar*/
+.form-nuevo {
+	background: #0885c4;
+	margin: auto;
+	margin-bottom: 12px;
+	padding: 10px;
+	color: white;
+	width: 50%;	
+}
+
+.form-nuevo > input{
+	width: 100%;
+	padding: 8px;
+	outline: none;
+	border: none;
+	height: 45px;
+	font-size: 14px;
+}
+
+.form-nuevo p > .button{
+	width: 40%;
+	outline: none;
+	border: none;
+	background: #0d5477;
+	color: white;
+	text-align: center;
+	margin: 15px 0 15px 0;
+	cursor: pointer;
+	padding: 15px;
+	font-size: 18px;
+	border-radius: 10px;	
+}
+
+.form-nuevo p > .button:hover{
+	background: white;
+	color: #0d5477;
+	border-bottom-left-radius: 18px;
+	box-shadow: 0 14px 28px rgba(0,0,0.1);
+}
+
+/*productos.html */
+
+.alinear{
+	width: 200px;
+	height: 150px;
+	margin: 0 5px;
+	border: 2px solid #cccccc;
+	border-radius: 20px;
+	padding: 8px;
+}
+
+.img-prod {
+	/*justify-content: center;*/
+	width: 100%; 
+	display: block;
+}
+
+.img-prod img:hover{
+	box-shadow: 0 14px 28px rgba(0,0,0.19);
 }

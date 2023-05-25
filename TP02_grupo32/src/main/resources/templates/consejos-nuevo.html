@@ -11,7 +11,7 @@
 	   <div class="container">
 		 <main>
 			<h3 th:text="${edicion}?'Modificar Consejo':'Nuevo Consejo'"></h3>
-			<form th:action="${edicion}?@{/consejo/modificar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
+			<form class="form-nuevo" th:action="${edicion}?@{/consejo/modificar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
 				<label for="codigo">Código de Consejo</label>
 				<input type="number" id="codigo" name="consejo_codigo" th:field="*{codigoConsejo}" th:readonly="${edicion}?'readonly'"><br><br>
 				<label for="titulo">Titulo del Consejo</label>

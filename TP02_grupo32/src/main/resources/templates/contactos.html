@@ -1,78 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../static/css/estilos.css" />
-    	<title>Tienda de Mascotas - G32</title>
-	</head>
-	<body >		
-		<header>
-		     <img src="../static/images/logo.png" alt="Tienda de Mascotas" />
-		     <h1>TIENDA DE MASCOTAS</h1>
-		     <p>
-		        • Soluciones integrales para tus mascotas<br />
-		        • Lo pedís, lo tenés - ENVÍOS GRATIS<br />
-		        • TIPS para mascotas felices<br />
-		        • Adoptá a tu mascota
-		     </p>
-		 </header>
-		<center>
-		<nav> 
-		  <center>
-			<nav> 
-			  <ul>
-				<a href="index.html">Inicio</a>
-			    <a href="productos.html">Productos</a>
-				<a href="consejos.html">Salud</a>
-				<a href="servicio-de-paseo.html">Servicios de Paseo</a>
-				<a href="sucursales.html">Sucursales</a>
-				<a href="contactos.html">Contacto </a>
-			  </ul>           
-			</nav>
-		  </center>              
-		</nav>
-		</center>
-		<br>
-		
-		<table class="tablaContacto" >
-			<tr>
-			  <th>
-				<h4>Direccion</h4>
-				<p>3915 Av. General Belgrano, 388-4999999</p>
-				<p>Lunes a Viernes: 9:00am a 8:00pm</p>
-				<p>Sabado a Domingo: 9:00am a 12:30pm</p>
-				<p>cantactos@gmail.com.ar</p><br>
-				
-					<li>
-						<a href="https://www.facebook.com.ar" target="_blank">
-							Facebook 
-						</a>
-					</li>
-				
-					<li> 
-						<a href="https://www.instagram.com" target="_blank">
-							Instagram
-						</a> 
-					</li>
-				
-				
-					<li> 
-						<a href="https://www.twitter.com" target="_blank">
-							Twitter
-						</a> 
-					</li>
-				<br>
-				
-				</th>
-			</tr>
-			<tr>
-			 <td >
-				
-			  </td align="center">
-			</tr>
-		 </table borde="1"><br>
-		 <h4 class="h4cont">Envianos tu consulta</h4 class="h4cont">
-		  <form class="formContacto" action="">
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+	 <head>
+	    <meta charset="UTF-8" />
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+	 </head>
+	 <body>
+	    <header th:replace="~{layouts/header :: header}"></header>
+	    <nav th:replace="~{layouts/nav :: nav}"></nav>
+		<div class="container">
+			<main>
+				<h3>Envianos tu consulta</h3>
+		  		<form class="formContacto" action="#">
 					<br>
 					<li>
 					    <label for="name">Nombre:</label><br>
@@ -91,17 +30,12 @@
 			    		<textarea class="field"></textarea><br>
 			  		</li><br>
 			 		
-			 		  <input type="submit" value="Enviar"
+			 		<input type="submit" value="Enviar"
 			 		  			class="btn-green" />
 			 		<br>	 				
-			</form class="formContacto">
-		 <br>
-		 <footer>
-		 	<center>
-			 	<p>
-			 	 Copyright 2023 - Contactenos - Diseñado por Grupo 32 - Jujuy - Republica Argentina
-			 	</p>
-		 	</center>	
-		 </footer>
-	</body bgcolor="#E7FCFA">
+				</form>
+		    </main>
+		</div>
+		<footer th:replace="~{layouts/footer :: footer}"></footer>
+	</body>
 </html>
