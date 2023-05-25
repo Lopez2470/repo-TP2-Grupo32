@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+		<title>Nueva Sucursal</title>
+	</head>
+	<body>
+		<div id="container">
+		  <header th:replace="~{layouts/header :: header}"></header>
+    	  <nav th:replace="~{layouts/nav :: nav}"></nav>
+    	 	
+    	 	<section id="content">
+    	 		<h3 th:text="${edicion}?'Modificar Sucursal':'Nueva Sucursal'"></h3>
+    	 		
+    	 		<form th:action="${edicion}?@{/sucursal/modificar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
+    	 			<label for="nombre">Nombre</label>
+    	 			<input type="text" id="nombre" name="sucursal_nombre" th:field="*{nombre}"><br><br>
+    	 			<label for="direccion">Direccion</label>
+    	 			<input type="text" id="direccion" name="sucursal_direccion" th:field="*{direccion}"><br>
+    	 			<label for="provincia">Provincia</label>
+    	 			<select id="provincia" name="sucursal_provincia" th:field="*{provincia}">
+    	 				<option value="SaLta">Salta</option>
+    	 				<option value="Jujuy">Jujuy</option>
+    	 			</select><br>
+    	 			<label for="fecha">Fecha de inicio</label>
+    	 			<input type="date" id="fecha" name="sucursal_fecha" th:field="*{fechaInicio}"><br><br>
+    	 			<label for="email">Email</label>
+    	 			<input type="text" id="email" name="sucursal_email" th:field="*{email}"><br>
+    	 			<label for="telefono">Telefono</label>
+    	 			<input type="text" id="telefono" name="sucursal_telefono" th:field="*{telefono}"><br>
+    	 			<p><input type="submit" class="button" 
+    	 			th:value="${edicion}?'Modificar':'Guardar'"></p>
+    	 			
+    	 		</form>
+    	 	</section>
+		</div>
+	  <footer th:replace="~{layouts/footer :: footer}"></footer>	
+	</body>
+</html>
