@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head>
-		<meta charset="UTF-8" />
+	<head th:replace="~{layouts/head :: head}">
+		<!-- <meta charset="UTF-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+	    <link rel="stylesheet" th:href="@{/css/estilos.css}">  --> 
 	    <title>Tienda de Mascotas - G32</title>
 	</head>
 	<body >		
-		 <header th:replace="~{layouts/header :: header}"></header>
+		<header th:replace="~{layouts/header :: header}"></header>
 	    <nav th:replace="~{layouts/nav :: nav}"></nav>
 		
-		<!-- <section id="content-sucursal" class="secSucursal">
-			<a th:href="@{/sucursal/nuevo}">Nueva Sucursal</a>  -->
-			<table class="tabla-listados">
+		<section id="content-sucursal" class="secSucursal">
+			<a th:href="@{/sucursal/nuevo}">Nueva Sucursal</a>
+			<table class="table table-striped">
 				<tr>
 					<th>Nombre</th>
-					<th>Direccion</th>
+					<th>Dirección</th>
 					<th>Provincia</th>
 					<th>Fecha Inicio</th>
 					<th>E-mail</th>
-					<th>Telefono</th>
+					<th>Teléfono</th>
 					<th>Acciones</th>
 				</tr>
 				
@@ -41,4 +41,3 @@
 		<br>
 		<footer th:replace="~{layouts/footer :: footer}"></footer>
 	</body>
-	</html>
