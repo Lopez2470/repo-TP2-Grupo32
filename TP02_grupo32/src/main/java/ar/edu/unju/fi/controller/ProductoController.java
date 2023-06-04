@@ -1,5 +1,6 @@
 package ar.edu.unju.fi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +17,11 @@ import ar.edu.unju.fi.model.Producto;
 /*@RequestMapping("/producto")*/
 @RequestMapping("/")
 public class ProductoController {
+	@Autowired
+	private ListaProducto listaProductos;
 	
-	ListaProducto listaProductos = new ListaProducto();
+	@Autowired
+	private Producto producto;
 	
 	@GetMapping("producto")
 	public String getIndex() {
@@ -33,7 +37,7 @@ public class ProductoController {
 	@GetMapping("producto/nuevo")
 	/*@GetMapping("/nuevo")*/
 	public String getNuevoProducto(Model model) {
-		model.addAttribute("producto", new Producto());
+		model.addAttribute("producto", producto);
 		return"productos-nuevo";
 	}
 	
