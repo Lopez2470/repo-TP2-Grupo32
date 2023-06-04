@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaServicio;
+import ar.edu.unju.fi.model.Producto;
 import ar.edu.unju.fi.model.Servicio;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/")
@@ -43,8 +46,13 @@ public class ServicioControler {
 	
 	@PostMapping("servicio/guardar")
 	/* public model getGuardarProductoPage(@ModelAttribute("producto")Producto producto){ */
-	public String getGuardarServicioPage(@ModelAttribute("servicio")Servicio servicio){
+	public String getGuardarServicioPage(@Valid  @ModelAttribute("servicio")Servicio servicio, BindingResult result){
 		ModelAndView modelView = new ModelAndView("servicios");
+		if(result.hasErrors()) {
+			modelView.setViewName("servicios-nuevo");
+			modelView.addObject("servicio", servicio);
+			return "servicios-nuevo";
+		}
 		listaServicios.getServicios().add(servicio);
 		modelView.addObject("servicios", listaServicios.getServicios());
 		/*return model;*/
@@ -67,7 +75,13 @@ public class ServicioControler {
 	}	
 	
 	@PostMapping("servicio/modificar")
-	public String modificarServicio(@ModelAttribute("servicio") Servicio servicio) {
+	public String modificarServicio(@Valid @ModelAttribute("servicio") Servicio servicio, BindingResult result) {
+		ModelAndView modelView = new ModelAndView("servicios");
+		if(result.hasErrors()) {
+			modelView.setViewName("servicios-nuevo");
+			modelView.addObject("servicio", servicio);
+			return "servicios-nuevo";
+		}
 		for(Servicio servic : listaServicios.getServicios()) {
 			if(servic.getCodigoServ() == servicio.getCodigoServ()) {
 				servic.setNombreServ(servicio.getNombreServ());
