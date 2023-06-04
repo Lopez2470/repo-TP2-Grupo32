@@ -1,5 +1,8 @@
 package ar.edu.unju.fi.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Producto {
 	private String nombreProducto;
 	private int codigoProducto;
@@ -65,7 +68,7 @@ public class Producto {
 	
 	public double calcularDescuento() {
 		if (this.descuentoProducto <= 50) {
-			return this.precioProducto*(100-this.descuentoProducto)/100;
+			return (this.precioProducto*(100-this.descuentoProducto)/100);
 		} else {
 			return this.precioProducto;
 		}
