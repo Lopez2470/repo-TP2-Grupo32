@@ -3,13 +3,14 @@ package ar.edu.unju.fi.model;
 import java.time.LocalDate;
 
 import org.springframework.format.annotation.DateTimeFormat;
-
+import org.springframework.stereotype.Component;
+@Component
 public class Consejo {
 
 	private int codigoConsejo;
 	private String tituloConsejo;
 	private String contenidoConsejo;
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	LocalDate fechaPublicacionConsejo;
 	private String autorConsejo;
 	private String categoriaConsejo;
@@ -76,4 +77,6 @@ public class Consejo {
 	public void setCategoriaConsejo(String categoriaConsejo) {
 		this.categoriaConsejo = categoriaConsejo;
 	}
+	
+	
 }
