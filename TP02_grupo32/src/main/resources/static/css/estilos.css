@@ -59,8 +59,8 @@ h6 {
 */
 
 
-/* Configuración para ocultar el h1 y que se muestre la descripción del header */
-header {
+/* Configuración para ocultar el h1 y otras modif del header */
+/*header {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,21 +69,22 @@ header {
   background-color: #ffe01a;
   background-image: url("../images/patron-background-sm.png");
   background-repeat: repeat;
-}
+}*/
 
 header h1 {
   position: absolute;
   display: none;
 }
 
-header p {
-  position: absolute;
-  margin-top: 160px;
-  margin-left: 300px;
+header ul {
+ /* position: relative; */
+ /* margin-top: -50px; */
+ /* margin-left: 170px; */
   font-family: "Atma", cursive;
   font-weight: 600;
-  line-height: 1.4rem;
+  line-height: 1.3rem;
   color: #273fa0;
+  list-style: none;
 }
 
 /*
@@ -328,11 +329,11 @@ tr:active{
     margin-right:20px;
 }
 
-
+/*
 ul {
     list-style: none;
     margin: 0;
-}
+}*/
 /*Tablas Listados*/
 
 .tabla-listados{
@@ -431,6 +432,22 @@ ul {
 .img-prod img:hover{
 	box-shadow: 0 14px 28px rgba(0,0,0.19);
 }
+
+
+.jumbotron-bg {
+  background-image: url("/images/Tienda-transp.png");
+  background-size: auto 90%;
+  background-position: right;
+  background-repeat: no-repeat;
+  height:390px;
+}
+
+.pattern-background {
+  background-image: url("/images/patron-background-sm.png");
+  background-repeat: repeat;
+}
+
+
 /*bootstrap*/
 /*
 .navbar{

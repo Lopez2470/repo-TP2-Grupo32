@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<header th:fragment="header">
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+	<header th:fragment="header"
+		class="pattern-background position-relative">
+		<div class="container text-center pt-2 pb-5">
+			<img src="/images/logo.png" class="img-fluid" alt="Tienda de Mascotas" />
+			<div class="position-absolute top-50 start-50">
+				<h1>TIENDA DE MASCOTAS</h1>
+				<ul class="text-start pt-2">
+					<li>Soluciones integrales para tus mascotas</li>
+					<li>Lo pedís, lo tenés - ENVÍOS GRATIS</li>
+					<li>TIPS para mascotas felices</li>
+					<li>Adoptá a tu mascota</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- 
 			<img src="/images/logo.png" alt="Tienda de Mascotas" />
 		    <h1>TIENDA DE MASCOTAS</h1>
-		    <p>
-		        • Soluciones integrales para tus mascotas<br />
-		        • Lo pedís, lo tenés - ENVÍOS GRATIS<br />
-		        • TIPS para mascotas felices<br />
-		        • Adoptá a tu mascota
-		    </p>
-		</header>
-	</body>
+		    <ul>
+		        <li>Soluciones integrales para tus mascotas</li>
+		        <li>Lo pedís, lo tenés - ENVÍOS GRATIS</li>
+		        <li>TIPS para mascotas felices</li>
+		        <li>Adoptá a tu mascota</li>
+		    </ul>  -->
+	</header>
+</body>
 </html>

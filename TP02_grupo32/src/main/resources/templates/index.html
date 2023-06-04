@@ -1,102 +1,132 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-  <head th:replace="~{layouts/head :: head}">
-    <title>Tienda de Mascotas - G32</title>
-  </head>
-  <body>
-    <header th:replace="~{layouts/header :: header}"></header>
-    <nav th:replace="~{layouts/nav :: nav}"></nav>
-    <div class="container">
-      <main>
-        <div>
-          <img
-            class="img-destacada"
-            src="/images/Tienda-transp.png"
-            alt="Quiénes somos"
-          />
-        </div>
-        <section>
-          <article class="mt-5">
-            <h2>QUIÉNES SOMOS</h2>
-            <p>
-              Tienda de Mascotas nace con el objetivo de dar a los animales y a
-              sus propietarios todo lo que estos necesitan, de una forma
-              sencilla y a un precio inferior al resto de las otras tiendas.
-            </p>
-            <p>Cuenta además con amparo y asesoramiento profesional veterinario.</p>
-          </article>
-          <article class="mt-5">
-            <h2>MISIÓN Y VISIÓN</h2>
-            <div class="caja-img-titulo">
-              <img
-                src="/images/Perrito.png"
-                alt="Perrito"
-                title="Nuestra Misión"
-              />
-              <h3>MISIÓN</h3>
-            </div>
-            <p>
-              Contribuimos a crear un mundo mejor, ayudando a amar y proteger a
-              sus mascotas.
-            </p>
-            <p>
-              Basados en nuestro equipo de trabajo somos solidarios socialmente,
-              brindando la mayor cantidad de trabajo posible, innovando
-              constantemente y logrando un prestigio que nos haga perdurar en el
-              tiempo.
-            </p>
-            <p>
-              Invirtiendo e innovando en proyectos para ampliar la estructura y
-              seguir creciendo en otras ciudades.
-            </p>
-            <p>
-              Aportando y participando solidariamente para crear una comunidad
-              inclusiva y el cuidado del medio ambiente.
-            </p>
+<head th:replace="~{layouts/head :: head}">
+<title>Tienda de Mascotas - G32</title>
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
+	<div class="container">
+		<main>
+			<div>
+				<div
+					class="mt-4 p-5 jumbotron-bg bg-warning bg-opacity-10 rounded shadow">
+					<h1 class="display-3 text-info">
+						Bienvenido a<br>Tienda de Mascotas
+					</h1>
+					<h2 class="text-secondary">Tenemos todo para tu mascota</h2>
+				</div>
 
-            <div class="caja-img-titulo">
-              <img
-                src="/images/Gatito.png"
-                alt="Gatito"
-                title="Nuestra visión"
-              />
-              <h3>VISIÓN</h3>
-            </div>
-            <p>
-              Ser una empresa moderna y sólida, líder en el país y con
-              proyección internacional.
-            </p>
-            <p>
-              Liderada por un equipo con acceso a la más alta calidad de
-              capacitación y con una mirada colaborativa e inclusiva.
-            </p>
-          </article>
-        </section>
-        <section>
-          <article class="mt-5">
-            <h3>INFORMACIÓN ADICIONAL</h3>
-            <ul>
-              <li><a href="#">Condiciones de envío</a></li>
-              <li><a href="#">Aviso legal</a></li>
-              <li><a href="#">Pago seguro</a></li>
-              <li><a href="#">Condiciones de uso</a></li>
-              <li><a href="#">Privacidad</a></li>
-              <li><a href="#">Política de cookies</a></li>
-              <li><a href="#">Mapa del sitio</a></li>
-            </ul>
-          </article>
-        </section>
-        <section>
-          <article>
-            <a href="#">
-              <img
-                src="/images/Promociones.png"
-                alt="Promociones y descuentos"
-            /></a>
-          </article>
-        </section>
-      </main>
-    </div>
-    <footer th:replace="~{layouts/footer :: footer}"></footer>
-  </body>
+			</div>
+			<section>
+				<article class="mt-5">
+
+					<div class="card mb-5 bg-light">
+						<div class="row g-0 align-items-center">
+							<div class="col-md-5">
+								<img src="/images/logo.png" class="img-fluid rounded-start"
+									alt="Logo tienda">
+							</div>
+							<div class="col-md-7">
+								<div class="card-body">
+									<h2 class="card-title">Quiénes somos</h2>
+									<p class="card-text">Tienda de Mascotas nace con el
+										objetivo de dar a los animales y a sus propietarios todo lo
+										que estos necesitan, de una forma sencilla y a un precio
+										inferior al resto de las otras tiendas.</p>
+									<p class="card-text">Cuenta además con amparo y
+										asesoramiento profesional veterinario.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article class="mt-5">
+					<h2 class="mb-3">MISIÓN Y VISIÓN</h2>
+
+					<div class="row row-cols-1 row-cols-md-2 g-4">
+						<div class="col">
+							<div class="card h-100 bg-success bg-gradient bg-opacity-25">
+								<div class="row g-0">
+									<div class="col-md-3">
+										<img src="/images/Gatito2.png" class="img-fluid rounded-start ps-2 pt-3"
+											alt="Gatito">
+									</div>
+									<div class="col-md-9">
+										<div class="card-body">
+											<h2 class="card-title">Misión</h2>
+											<p class="card-text">Contribuimos a crear un mundo mejor,
+												ayudando a amar y proteger a sus mascotas. Basados en
+												nuestro equipo de trabajo somos solidarios socialmente,
+												brindando la mayor cantidad de trabajo posible, innovando
+												constantemente y logrando un prestigio que nos haga perdurar
+												en el tiempo. Aportando y participando solidariamente para
+												crear una comunidad inclusiva y el cuidado del medio
+												ambiente.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col">
+							<div class="card h-100 bg-warning bg-gradient bg-opacity-25">
+								<div class="row g-0">
+									<div class="col-md-3">
+										<img src="/images/Perrito2.png" class="img-fluid rounded-start ps-2"
+											alt="Perrito">
+									</div>
+									<div class="col-md-9">
+										<div class="card-body">
+											<h2 class="card-title">Visión</h2>
+											<p class="card-text">Ser una empresa moderna y sólida,
+												líder en el país y con proyección internacional. Liderada
+												por un equipo con acceso a la más alta calidad de
+												capacitación y con una mirada colaborativa e inclusiva. Dar
+												un buen servicio al cliente y a la mascota con un valor
+												diferencial. Tener un equipo de trabajo con alto desempeño,
+												pasión y compromiso. Entregar al cliente productos de buena
+												calidad.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</article>
+
+			</section>
+			<section>
+				<article class="mt-5">
+					<h2 class="mb-3">INFORMACIÓN ADICIONAL</h2>
+					<ul class="list-unstyled">
+						<li><i class="bi bi-truck me-2"></i><a href="#"
+							class="text-decoration-none">Condiciones de envío</a></li>
+						<li><i class="bi bi-info-circle me-2"></i><a href="#"
+							class="text-decoration-none">Aviso legal</a></li>
+						<li><i class="bi bi-credit-card me-2"></i><a href="#"
+							class="text-decoration-none">Pago seguro</a></li>
+						<li><i class="bi bi-ui-checks-grid me-2"></i><a href="#"
+							class="text-decoration-none">Condiciones de uso</a></li>
+						<li><i class="bi bi-file-lock me-2"></i><a href="#"
+							class="text-decoration-none">Privacidad</a></li>
+						<li><i class="bi bi-gear-wide me-2"></i><a href="#"
+							class="text-decoration-none">Política de cookies</a></li>
+						<li><i class="bi bi-diagram-3 me-2"></i><a href="#"
+							class="text-decoration-none">Mapa del sitio</a></li>
+					</ul>
+				</article>
+			</section>
+			<section>
+				<article>
+					<a href="#"> <img class="img-fluid"
+						src="/images/Promociones.png" alt="Promociones y descuentos" /></a>
+				</article>
+			</section>
+		</main>
+	</div>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+</body>
 </html>
