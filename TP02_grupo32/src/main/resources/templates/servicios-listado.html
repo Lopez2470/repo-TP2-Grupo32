@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	 <head>
-	    <meta charset="UTF-8" />
-	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+	 <head th:replace="~{layouts/head :: head}">
 	 </head>
 	 <body>
 	    <header th:replace="~{layouts/header :: header}"></header>
 	    <nav th:replace="~{layouts/nav :: nav}"></nav>
 		<div class="container">
 			<main>
-				<h2>Listado de Servicios</h2>
-				<table class="tabla-listados">
-					<tr>
-						<th>Codigo del Servicio</th>
-						<th>Nombre del Servicio</th>
-						<th>Descripción</th>
-						<th>Categoria</th>
-						<th>Precio Servicio</th>
-						<th>Acciones</th>
-					</tr>
+				<h2 class="mt-5 mb-3">Listado de Servicios</h2>
+				<table class="table table-striped table-hover mb-5"> 
+					<thead >
+						<tr>
+							<th>Código del servicio</th>
+							<th>Nombre del servicio</th>
+							<th>Descripción</th>
+							<th>Categoría</th>
+							<th>Precio servicio</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>	
 					<tr th:each="servic: ${servicios}">
 						<td th:text="${servic.codigoServ}"></td>
 						<td th:text="${servic.nombreServ}"></td>
@@ -27,8 +26,8 @@
 						<td th:text="${servic.categoriaServ}"></td>
 						<td th:text="${servic.precioServ}"></td>
 						<td>
-							<a th:href="@{/servicio/modificar/}+${servic.codigoServ}">Editar</a>
-							<a th:href="@{/servicio/eliminar/}+ ${servic.codigoServ}">Eliminar</a>
+							<a th:href="@{/servicio/modificar/}+${servic.codigoServ}" class="btn btn-success btn-sm">Editar</a>
+							<a th:href="@{/servicio/eliminar/}+ ${servic.codigoServ}" class="btn btn-danger btn-sm">Eliminar</a>
 						</td>
 					</tr>
 				</table>
