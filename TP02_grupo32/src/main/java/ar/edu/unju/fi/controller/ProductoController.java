@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaProducto;
+import ar.edu.unju.fi.model.Consejo;
 import ar.edu.unju.fi.model.Producto;
+import jakarta.validation.Valid;
 
 @Controller
 /*@RequestMapping("/producto")*/
@@ -44,8 +47,13 @@ public class ProductoController {
 	@PostMapping("producto/guardar")
 	/*@PostMapping("/guardar")*/
 	/* public model getGuardarProductoPage(@ModelAttribute("producto")Producto producto){ */
-	public String getGuardarProductoPage(@ModelAttribute("producto")Producto producto){
+	public String getGuardarProductoPage(@Valid @ModelAttribute("producto")Producto producto, BindingResult result){
 		ModelAndView modelView = new ModelAndView("productos");
+		if(result.hasErrors()) {
+			modelView.setViewName("productos-nuevo");
+			modelView.addObject("producto", producto);
+			return "productos-nuevo";
+		}
 		listaProductos.getProductos().add(producto);
 		modelView.addObject("productos", listaProductos.getProductos());
 		/*return model;*/
@@ -68,7 +76,13 @@ public class ProductoController {
 	
 	@PostMapping("producto/modificar")
 	/*@PostMapping("/modificar")*/
-	public String modificarProducto(@ModelAttribute("producto")Producto producto) {
+	public String modificarProducto(@Valid @ModelAttribute("producto")Producto producto, BindingResult result) {
+			ModelAndView modelView = new ModelAndView("productos");
+			if(result.hasErrors()) {
+				modelView.setViewName("productos-modificar");
+				modelView.addObject("producto", producto);
+				return "productos-modificar";
+			}	
 		for(Producto prod : listaProductos.getProductos()){
 			if(prod.getCodigoProducto() == producto.getCodigoProducto()) {
 				prod.setNombreProducto(producto.getNombreProducto());
