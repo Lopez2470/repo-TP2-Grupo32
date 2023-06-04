@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head>
-	    <meta charset="UTF-8" />
+	<head th:replace="~{layouts/head :: head}">
+	  <!--  <meta charset="UTF-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+	    <link rel="stylesheet" th:href="@{/css/estilos.css}"> --> 
 	</head>
 	<body>
 	    <header th:replace="~{layouts/header :: header}"></header>
@@ -11,12 +11,14 @@
 	    <div class="container">
 	       <main>
 	         <article>
-		         <h2>SERVICIO DE PASEOS</h2>
-		         <h3>Tabla de horarios</h3>
+		         <h2 class="mt-5">SERVICIO DE PASEOS</h2>
+		         <h3>Tabla de horarios*</h3>
 		         <!-- Creamos la tabla con borde y con espacio entre celdas -->
-		         <table class="tabla-servicios">
+		         <table class="table">
+  					<caption>(*) Los horarios están sujetos a posibles cambios.</caption>
+
 		              <!-- Creamos la primera fila de la tabla que contiene los encabezados de las columnas -->
-		              <tr>
+		              <tr class="table-warning">
 		                 <!-- La primera columna es el encabezado de Día -->
 		                 <th>Día</th>
 		                 <!-- Las siguientes columnas son los días de la semana como encabezados -->
@@ -30,7 +32,7 @@
 		               <!-- Creamos la segunda fila de la tabla que contiene los horarios de cada día -->
 		              <tr>
 			              <!-- La primera columna es el encabezado de Horario -->
-			              <th><b>Horario</b></th>
+			              <th class="table-light">Horario</th>
 				              <!-- Las siguientes columnas son los horarios de cada día -->
 				              <td>9 a 12 - 16 a 18</td>
 				              <td>9 a 12 - 16 a 18</td>
@@ -42,7 +44,7 @@
 		              <!-- Creamos la tercera fila de la tabla que contiene los nombres de los paseadores para cada día -->
 		              <tr>
 			              <!-- La primera columna es el encabezado de Paseador -->
-			              <th><b>Paseador</b></th>
+			              <th class="table-light">Paseador</th>
 				              <!-- Las siguientes columnas son los nombres de los paseadores para cada día -->
 				              <td><a th:href="@{#}" target=_blank>Juan Pérez</a></td>
 				              <td><a th:href="@{#}" target=_blank>Lucas Díaz</a></td>
@@ -51,9 +53,6 @@
 				              <td><a th:href="@{#}" target=_blank>Juan Pérez</a></td>
 				              <td><a th:href="@{#}" target=_blank>Lucas Díaz</a></td>
 		              </tr>
-		              <tr>
-		            	<td colspan="7"> * <span class="resaltar">Horarios sujeto a cambios</span></td>
-		             </tr>
 		          </table>
 	          </article>
 	       </main>
