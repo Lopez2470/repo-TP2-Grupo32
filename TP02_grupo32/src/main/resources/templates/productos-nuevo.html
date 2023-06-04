@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	 <head>
-	    <meta charset="UTF-8" />
+	 <head th:replace="~{layouts/head :: head}">
+	  <!--  <meta charset="UTF-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+	    <link rel="stylesheet" th:href="@{/css/estilos.css}">  --> 
 	 </head>
 	 <body>
 	    <header th:replace="~{layouts/header :: header}"></header>
 	    <nav th:replace="~{layouts/nav :: nav}"></nav>
-		<div class="container">
+	    	
+	<div class="container">
 			<main>
-				<h3>Nuevo Producto</h3>
-				<form class="form-nuevo" th:action="@{/producto/guardar}" th:object="${producto}" method="post">
-					<label for="codigo">Código</label>
-					<input type="number" id="codigo" name="producto_codigo" th:field="*{codigoProducto}"><br><br>
-					<label for="nombre">Nombre</label>
-					<input type="text" id="nombre" name="producto_nombre" th:field="*{nombreProducto}"><br><br>
-					<label for="precio">Precio</label>
-					<input type="number" id="precio" name="producto_precio" th:field="*{precioProducto}"><br><br>
-					<label for="categoria">Categoria</label>
-					<select id="categoria" name="producto_categoria" th:field="*{categoriaProducto}"><br><br>
-						<option value="Alimento">Alimento</option>
-						<option value="Juguete">Juguete</option>
-						<option value="Vestimenta">Vestimenta</option>
-						<option value="Cuidado">Cuidado</option>
-					</select><br><br>
-					<label for="descuento">Descuento</label>
-					<input type="number" id="descuento" name="producto_descuento" th:field="*{descuentoProducto}"><br><br>
-					<p>
-						<input type="submit" class="button" value="Guardar">
-					</p>
-				</form>		
-		    </main>
-		</div>
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
-	</body>
+				<div class="row g-5 ">
+			      <div class="col-md-7 col-lg-8 mx-auto">
+			        <h4 class="mb-3" >Nuevo Producto</h4>
+			        
+		
+			        <form th:action="@{/producto/guardar}" th:object="${producto}" method="post">
+			          <div class="row g-3">
+			          
+			            <div class="col-sm-6">
+			              <label for="codigo" class="form-label">Código del Producto</label>
+			              <input type="number" class="form-control" id="codigo" name="producto_codigo" th:field="*{codigoProducto}" value="" required>  
+			            </div>		            
+          
+			            <div class="col-sm-6">
+			              <label for="nombre" class="form-label">Nombre del Producto</label>
+			              <input type="text" class="form-control" id="nombre" name="producto_nombre" th:field="*{nombreProducto}" value="" required>
+			            </div>
+
+				        <div class="col-sm-6">
+				             <label for="precio" class="form-label">Precio del Producto</label>
+				             <input type="number" class="form-control" id="precio" name="producto_precio" th:field="*{precioProducto}" value="" required >  
+				        </div>
+				            
+				        <div class="col-sm-6">
+				            <label for="descuento" class="form-label">Descuento del Producto</label>
+				            <input type="number" class="form-control" id="descuento" name="producto_descuento" th:field="*{descuentoProducto}" value="" required >
+				        </div>			     			        
+							
+			            <div class="col-md-4">
+			              <label for="categoria" class="form-label">Categoria del Producto</label>
+			              <select class="form-select" id="categoria" name="producto_categoria" th:field="*{categoriaProducto}" value="" required >
+			                <option value="">Elegir...</option>
+			                <option value="Alimento">Alimento</option>
+							<option value="Juguete">Juguete</option>
+							<option value="Vestimenta">Vestimenta</option>
+							<option value="Cuidado">Cuidado</option>
+			              </select>
+			            </div>
+
+			            <button class="w-100 btn btn-primary btn-lg" type="submit">Guardar</button>
+			            
+			            <hr class="my-4">
+	          
+			          </div>
+			        </form>
+				</div>
+			</div>
+		</main>
+	</div>	 			
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+  </body>
 </html>

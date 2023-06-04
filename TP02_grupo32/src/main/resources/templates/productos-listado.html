@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	 <head>
-	    <meta charset="UTF-8" />
+	 <head th:replace="~{layouts/head :: head}">
+	 <!--    <meta charset="UTF-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+	    <link rel="stylesheet" th:href="@{/css/estilos.css}"> -->
 	 </head>
 	 <body>
 	    <header th:replace="~{layouts/header :: header}"></header>
 	    <nav th:replace="~{layouts/nav :: nav}"></nav>
 		<div class="container">
 			<main>
-				<h1>Listado de Productos</h1>
-				<table class="tabla-listados">
+				<h2 class="mt-5 mb-3">Listado de Productos</h2>
+				<table class="table table-striped table-hover mb-5"> 
+				<thead >
 					<tr>
-						<th>Codigo Prod</th>
-						<th>Nombre Prod</th>
+						<th>Código Prod.</th>
+						<th>Nombre Prod.</th>
 						<th>Precio</th>
-						<th>Categoria</th>
+						<th>Categoría</th>
 						<th>Descuento</th>
 						<th>Acciones</th>
 					</tr>
+				</thead>	
 					<tr th:each="produ: ${productos}">
 						<td th:text="${produ.codigoProducto}"></td>
 						<td th:text="${produ.nombreProducto}"></td>
@@ -27,8 +29,8 @@
 						<td th:text="${produ.categoriaProducto}"></td>
 						<td th:text="${produ.calcularDescuento()}"></td>
 						<td>
-							<a th:href="@{/producto/modificar/}+${produ.codigoProducto}">Editar</a>
-							<a th:href="@{/producto/eliminar/}+ ${produ.codigoProducto}">Eliminar</a>
+							<a th:href="@{/producto/modificar/}+${produ.codigoProducto}" class="btn btn-success btn-sm">Editar</a>
+							<a th:href="@{/producto/eliminar/}+ ${produ.codigoProducto}" class="btn btn-danger btn-sm">Eliminar</a>
 						</td>
 					</tr>
 				</table>
