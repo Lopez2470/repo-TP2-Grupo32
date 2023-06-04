@@ -25,10 +25,9 @@
 				             <div class="col-8">
 								<input class="form-control" type="number" id="codigo" 
 								name="consejo_codigo" th:field="*{codigoConsejo}" 
-								th:readonly="${edicion}?'readonly'"
-								value="" required>
-							</div>
-
+								th:readonly="${edicion}?'readonly'">
+							 </div>
+							 <div class="text-danger" th:if="${#fields.hasErrors('codigoConsejo')}" th:errors="*{codigoConsejo}"></div>
 				          </div>	
 				          
 				         <div class="row mb-3">
@@ -37,10 +36,10 @@
 							</label>
 							<div class="col-10">
 								<input class="form-control" type="text" id="titulo" 
-								name="consejo_titulo" th:field="*{tituloConsejo}"
-								value="" required>
+								name="consejo_titulo" th:field="*{tituloConsejo}">
 							</div>
-						</div>
+							<div class="text-danger" th:if="${#fields.hasErrors('tituloConsejo')}" th:errors="*{tituloConsejo}"></div>
+						 </div>
 					
 						<div class="row mb-3">
 							<label for="contenido" class="col-8 col-form-label">
@@ -48,9 +47,9 @@
 							</label>
 							<div class="col-10">
 								<input class="form-control" type="text" id="contenido" 
-								name="consejo_contenido" th:field="*{contenidoConsejo}"
-								value="" required>
+								name="consejo_contenido" th:field="*{contenidoConsejo}">
 							</div>
+							<div class="text-danger" th:if="${#fields.hasErrors('contenidoConsejo')}" th:errors="*{contenidoConsejo}"></div>
 						</div>					
 						
 						<div class="row mb-3">
@@ -60,9 +59,9 @@
 							<div class="col-10">
 								<input class="form-control" type="text" id="autor" 
 								name="consejo_autor" 
-								th:field="*{autorConsejo}"
-								value="" required>
+								th:field="*{autorConsejo}">
 							</div>
+							<div class="text-danger" th:if="${#fields.hasErrors('autorConsejo')}" th:errors="*{autorConsejo}"></div>
 						</div>
 						
 						<div class="row mb-3">
@@ -72,28 +71,29 @@
 							<div class="col-3">
 								<input class="form-control" type="date" id="fecha" 
 								name="consejo_fecha" 
-								th:field="*{fechaPublicacionConsejo}"
-								value="" required>
+								th:field="*{fechaPublicacionConsejo}">
+								<div class="text-danger" th:if="${#fields.hasErrors('fechaPublicacionConsejo')}" th:errors="*{fechaPublicacionConsejo}"></div>
 							</div>
 							
-						
-					
+									
 							<label for="categoria" class="col-2 col-form-label">
 								Categoria
 							</label>
 							<div class="col-3">
 								<select class="form-select" id="categoria" name="consejo_categoria" 
-										th:field="*{categoriaConsejo}" value="" required>
+										th:field="*{categoriaConsejo}">
 										<option value="">Elegir...</option>
 										<option value="Alimentacion">Alimentacion</option>
 										<option value="Actividad fisica">Actividad fisica</option>
 										<option value="Visitas veterinarias">Visitas veterinarias</option>
 										<option value="Entretenimiento">Entretenimiento</option>
 								</select>
+								<div class="text-danger" th:if="${#fields.hasErrors('categoriaConsejo')}" th:errors="*{categoriaConsejo}"></div>
 							</div>
+							
 						</div>
-				         <button class="col-10 btn btn-primary btn-lg" type="submit" th:text="${edicion}?'Modificar':'Guardar'"></button>		           
-				         <hr class="my-4">
+				        <button class="col-10 btn btn-primary btn-lg" type="submit" th:text="${edicion}?'Modificar':'Guardar'"></button>		           
+				        <hr class="my-4">
 			          </div>
 			        </form>
 				</div>

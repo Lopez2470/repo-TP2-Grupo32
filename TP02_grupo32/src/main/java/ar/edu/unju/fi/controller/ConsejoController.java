@@ -3,6 +3,7 @@ package ar.edu.unju.fi.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.model.Consejo;
-import ar.edu.unju.fi.model.Servicio;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/")
@@ -45,8 +46,13 @@ public class ConsejoController {
 	}
 	
 	@PostMapping("consejo/guardar")
-	public String getGuardarConsejoPage(@ModelAttribute("consejo")Consejo consejo){
+	public String getGuardarConsejoPage(@Valid @ModelAttribute("consejo")Consejo consejo, BindingResult result){
 		ModelAndView modelView = new ModelAndView("consejos");
+		if(result.hasErrors()) {
+			modelView.setViewName("consejos-nuevo");
+			modelView.addObject("consejo", consejo);
+			return "consejos-nuevo";
+		}
 		listaConsejos.getConsejos().add(consejo);
 		modelView.addObject("consejos", listaConsejos.getConsejos());
 		return"redirect:/consejo/listado";
@@ -68,7 +74,14 @@ public class ConsejoController {
 	}	
 	
 	@PostMapping("consejo/modificar")
-	public String modificarConsejo(@ModelAttribute("consejo") Consejo consejo) {
+	public String modificarConsejo(@Valid @ModelAttribute("consejo") Consejo consejo, BindingResult result) {
+		ModelAndView modelView = new ModelAndView("consejos");
+		if(result.hasErrors()) {
+			modelView.setViewName("consejos-nuevo");
+			modelView.addObject("consejo", consejo);
+			return "consejos-nuevo";
+		}
+		
 		for(Consejo conse : listaConsejos.getConsejos()) {
 			if(conse.getCodigoConsejo() == consejo.getCodigoConsejo()) {
 				conse.setTituloConsejo(consejo.getTituloConsejo());
