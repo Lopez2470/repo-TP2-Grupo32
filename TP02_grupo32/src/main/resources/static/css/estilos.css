@@ -1,14 +1,15 @@
 /* Incorporar fuentes de Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Atma:wght@500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap");
 
-/* Inicialización básica o reset */
+/* Inicialización básica o reset
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+*/
 
-/* Definir fuente y tamaño junto al color de fondo y texto */
+/* Definir fuente y tamaño junto al color de fondo y texto 
 body {
   font-size: 1.1rem;
   font-family: "Source Sans Pro", sans-serif;
@@ -18,8 +19,9 @@ body {
 p {
   margin-bottom: 0.7rem;
 }
+*/
 
-/* Definir la fuente y color para los títulos */
+/* Personalización de la fuente y color de los títulos */
 h1,
 h2,
 h3,
@@ -30,7 +32,7 @@ h6 {
   color: #273fa0;
 }
 
-/* Definir los tamaños de los títulos */
+/* Definir los tamaños de los títulos
 h1 {
   font-size: 2.6rem;
 }
@@ -54,6 +56,8 @@ h5 {
 h6 {
   font-size: 1.1rem;
 }
+*/
+
 
 /* Configuración para ocultar el h1 y que se muestre la descripción del header */
 header {
@@ -82,11 +86,13 @@ header p {
   color: #273fa0;
 }
 
+/*
 .container {
   width: 860px;
   margin: 0 auto;
   }
-  
+*/
+
 /*NAV MODIFICADO*/  
 nav {
   background-color: #ff6a00;
@@ -145,11 +151,11 @@ nav {
 }
 
 .caja-img-titulo {
-  display: flex; /* Crea un flexbox para contener una imagen con un texto */
+  display: flex; /* Crea unrgb(255, 179, 0), 198, 0)x para contener una imagen con un texto */
   align-items: center; /* Centra verticalmente los elementos dentro del flexbox */
   padding: 5px 0 0 20px;
-  background-image: linear-gradient(to bottom, #ffffff, #faebd7);
-  border-bottom: 2px solid #ff6a00;
+  background-image: linear-gradient(to bottom, #ffffff, #ffed77);
+  border-bottom: 2px solid #ffc900;
   margin: 30px 0 20px;
 }
 .caja-img-titulo img {
@@ -163,22 +169,27 @@ nav {
   height: auto; /* para que la altura se ajuste proporcionalmente al ancho */
 }
 
-.esp-sup {
+/* se usa para dar un espaciado superior al elemento */
+/* .esp-sup { 
   margin-top: 40px;
 }
 .backgnd-especial {
   background-image: radial-gradient(circle, #ffffff, #f8f8f8);
 }
+*/
 
+/*
 footer {
   bottom: 0;
   padding-top: 25px;
   width: 100%;
   height: 70px;
+  
+  text-align: center;
   background-color: #273fa0;
   color: #fff;
-  text-align: center;
 }
+*/
 
 /*cuidados.html*/
 .img-cuidados01 {
@@ -243,7 +254,7 @@ a:active {
 	padding-bottom: 10px;
 	text-align: center;
 }
-
+/*
 .tabla-servicios th{
 	background: #006699;
 	color: white;	
@@ -253,7 +264,7 @@ tr:hover{
 	background-color: #0099cc;
 	color: white;
 }
-
+*/
 tr:active{
 	background-color: #00394d;
 	color: white;
@@ -313,7 +324,8 @@ tr:active{
 }
 
 .lista {
-    flex-basis: 50%;
+    flex-basis: 30%;
+    margin-right:20px;
 }
 
 
@@ -340,15 +352,25 @@ ul {
 	color: white;
 }
 
-.tabla-listados tr:nth-child(even){
+/*
+.table thead {
+	background-color: #006699;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+	text-align: center;
+}
+
+.table tr:nth-child(even){
 	background-color: #ddd;
 }
 
-.tabla-listados tr:hover td{
+.table tr:hover td {
 	background-color: #0099cc;
 	color: white;
 
 }
+*/
+
 /*Formulario Nuevo-Modificar*/
 .form-nuevo {
 	background: #0885c4;
@@ -409,3 +431,10 @@ ul {
 .img-prod img:hover{
 	box-shadow: 0 14px 28px rgba(0,0,0.19);
 }
+/*bootstrap*/
+/*
+.navbar{
+	background-color: #ff6a00;
+}
+*/
+

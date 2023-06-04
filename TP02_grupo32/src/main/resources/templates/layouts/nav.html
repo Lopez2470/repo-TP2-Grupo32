@@ -4,36 +4,72 @@
 		<meta charset="UTF-8">
 	</head>
 	<body>
-		<nav th:fragment="nav">
-			<ul class="menu-horizontal">
-		        <li><a th:href="@{/inicio}" title="Página de Inicio">Inicio</a></li>
-		        <li><a th:href="@{/producto}" title="Productos">Productos</a> 
-				<ul class="menu-vertical">
-					<li><a th:href="@{/producto/listado}" title="Listado de Productos">Listado</a></li>
-					<li><a th:href="@{/producto/nuevo}" title="Nuevo Producto">Nuevo</a></li> 
-					
-				</ul>
-				</li>
-		        <li><a th:href="@{/consejo}" title="Consejos">Consejos de Salud</a>
-			         <ul class="menu-vertical">
-						<li><a th:href="@{/consejo/listado}" title="Listado de Consejos">Listado</a></li>
-						<li><a th:href="@{/consejo/nuevo}" title="Nuevo Consejo">Nuevo</a></li> 
-					</ul>
-				</li>
-		        <li><a th:href="@{/servicio}" title="Servicio de Paseos">Servicio de Paseos</a>
-			        <ul class="menu-vertical">
-						<li><a th:href="@{/servicio/listado}" title="Listado de Consejos">Listado</a></li>
-						<li><a th:href="@{/servicio/nuevo}" title="Nuevo Consejo">Nuevo</a></li> 
-					</ul>
-				</li>	
-		        <li><a th:href="@{/sucursalIndex}" title="Sucursales">Sucursales</a>
-			        <ul class="menu-vertical">
-						<li><a th:href="@{/sucursal/listado}" title="Listado de Sucursales">Listado</a></li>
-						<li><a th:href="@{/sucursal/nuevo}" title="Nueva Sucursal">Nuevo</a></li> 
-					</ul>
-				</li>
-		        <li><a th:href="@{/contacto}" title="Contactos">Contáctanos</a></li>
-	       </ul>
-		</nav>
+		<nav class="navbar navbar-expand-md bg-warning bg-gradient text-dark border-3 border-bottom border-black" th:fragment="nav">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active" th:href="@{/inicio}" title="Página de Inicio">Inicio</a></li>
+
+                <li class="nav-item dropdown">
+                    <div class="btn-group">
+                        <a class="nav-link" th:href="@{/producto}" title="Productos" role="button">Productos</a>
+                        <button type="button" class="btn btn-warning bg-light bg-opacity-25 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu bg-warning bg-opacity-75">
+                            <li><a class="dropdown-item" th:href="@{/producto/listado}" title="Listado de Productos">Listado</a></li>
+                            <li><a class="dropdown-item" th:href="@{/producto/nuevo}" title="Nuevo Producto">Nuevo</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <div class="btn-group">
+                        <a class="nav-link" th:href="@{/consejo}" title="Consejos" role="button">Consejos de Salud</a>
+                        <button type="button" class="btn btn-warning bg-light bg-opacity-25 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu bg-warning bg-opacity-75">
+                            <li><a class="dropdown-item" th:href="@{/consejo/listado}" title="Listado de Consejos">Listado</a></li>
+                            <li><a class="dropdown-item" th:href="@{/consejo/nuevo}" title="Nuevo Consejo">Nuevo</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <div class="btn-group">
+                        <a class="nav-link" th:href="@{/servicio}" title="Servicio de Paseos" role="button">Servicio de Paseos</a>
+                        <button type="button" class="btn btn-warning bg-light bg-opacity-25 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu bg-warning bg-opacity-75">
+                            <li><a class="dropdown-item" th:href="@{/servicio/listado}" title="Listado de Consejos">Listado</a></li>
+                            <li><a class="dropdown-item" th:href="@{/servicio/nuevo}" title="Nuevo Consejo">Nuevo</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <div class="btn-group">
+                        <a class="nav-link" th:href="@{/sucursalIndex}" title="Sucursales" role="button">Sucursales</a>
+                        <button type="button" class="btn btn-warning bg-light bg-opacity-25 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu bg-warning bg-opacity-75">
+                            <li><a class="dropdown-item" th:href="@{/sucursal/listado}" title="Listado de Sucursales">Listado</a></li>
+                            <li><a class="dropdown-item" th:href="@{/sucursal/nuevo}" title="Nueva Sucursal">Nuevo</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item"><a class="nav-link active" th:href="@{/contacto}" title="Contactos">Contáctanos</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 	</body>
 </html>
