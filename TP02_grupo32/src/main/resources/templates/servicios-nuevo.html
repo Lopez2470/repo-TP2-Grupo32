@@ -49,7 +49,14 @@
 						        <div class="text-danger" th:if="${#fields.hasErrors('categoriaServ')}" th:errors="*{categoriaServ}"></div>
 							</div>				 
 				        
-				            <button class="w-100 btn btn-primary btn-lg" type="submit" th:text="${edicion}?'Modificar':'Guardar'"></button>		           
+				            <div class="row mb-3">
+						        <div class="col-sm-3 text-center">
+						        	<button class="btn btn-outline-primary" type="submit" th:text="${edicion}?'Modificar':'Guardar'"></button>
+						        </div>	
+						        <div class="col-sm-2">
+						        <a th:href="@{/servicio/listado}" class="btn btn-outline-danger">Cancelar</a>
+						        </div>
+				    		</div>		           
 				            <hr class="my-4">
 			          </div>
 			        </form>
