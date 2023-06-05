@@ -1,43 +1,92 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
 	<head th:replace="~{layouts/head :: head}">
-		<!-- <meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-	    <link rel="stylesheet" th:href="@{/css/estilos.css}">  -->
-		<title>Nueva Sucursal</title>
 	</head>
 	<body>
-
 		  <header th:replace="~{layouts/header :: header}"></header>
     	  <nav th:replace="~{layouts/nav :: nav}"></nav>
     	 	
     	 <div class="container">
-    	 <main>	
-    	 	<section id="content">
-    	 		<h3 class="mt-5 mb-3" th:text="${edicion}?'Modificar Sucursal':'Nueva Sucursal'"></h3>
-    	 		
-    	 		<form class="mt-5 mb-3" th:action="${edicion}?@{/sucursal/modificar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
-    	 			<label for="nombre">Nombre</label>
-    	 			<input type="text" id="nombre" name="sucursal_nombre" th:field="*{nombre}"><br><br>
-    	 			<label for="direccion">Direcci√≥n</label>
-    	 			<input type="text" id="direccion" name="sucursal_direccion" th:field="*{direccion}"><br>
-    	 			<label for="provincia">Provincia</label>
-    	 			<select id="provincia" name="sucursal_provincia" th:field="*{provincia}">
-    	 				<option value="SALTA">Salta</option>
-    	 				<option value="JUJUY">Jujuy</option>
-    	 			</select><br>
-    	 			<label for="fecha">Fecha de inicio</label>
-    	 			<input type="date" id="fecha" name="sucursal_fecha" th:field="*{fechaInicio}"><br><br>
-    	 			<label for="email">E-mail</label>
-    	 			<input type="text" id="email" name="sucursal_email" th:field="*{email}"><br>
-    	 			<label for="telefono">Tel√©fono</label>
-    	 			<input type="text" id="telefono" name="sucursal_telefono" th:field="*{telefono}"><br>
-    	 			<button class="col-5 btn btn-primary btn-lg" type="submit" 
-    	 			th:value="${edicion}?'Modificar':'Guardar'">Enviar</button>
-    	 			
-    	 		</form>
-    	 	</section>
-    	 	</main>
+    	 <main>
+    	 	<div class="row g-5">
+    	 		<div class="col-md-7 col-lg-8  mx-auto">
+    	 			<h3 class="mt-5 mb-3" th:text="${edicion}?'Modificar Sucursal':'Nueva Sucursal'"></h3>
+    	 			<form class="mt-5 mb-3" th:action="${edicion}?@{/sucursal/modificar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
+    	 				<div class="col-sm-8">
+				             <label for="codigo" class="col-4 col-form-label">CÛdigo de Sucursal</label>
+				             <div class="col-8">
+								<input class="form-control" type="number" id="codigo" 
+								name="sucursal-codigo" th:field="*{codigo}" 
+								th:readonly="${edicion}?'readonly'">
+							 </div>
+							 <div class="text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
+				          </div>
+				          
+				          <div class="row mb-3">
+							<label for="nombre" class="col-8 col-form-label">Nombre de Sucursal</label>
+							<div class="col-10">
+								<input class="form-control" type="text" id="nombre" 
+								name="sucursal-nombre" th:field="*{nombre}">
+							</div>
+							<div class="text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></div>
+						 </div>
+						 
+						 <div class="row mb-3">
+							<label for="direccion" class="col-8 col-form-label">Direccion de Sucursal</label>
+							<div class="col-10">
+								<input class="form-control" type="text" id="direccion" 
+								name="sucursal-direccion" th:field="*{direccion}">
+							</div>
+							<div class="text-danger" th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></div>
+						 </div>
+						 
+						 <div class="row mb-3">		
+							<label for="provincia" class="col-2 col-form-label">Provincia</label>
+							<div class="col-3">
+								<select class="form-select" id="provincia" name="sucursal-provincia" 
+										th:field="*{provincia}">
+										<option value="">Elegir...</option>
+										<option value="Jujuy">Jujuy</option>
+										<option value="Salta">Salta</option>
+										<option value="Tucum·n">Tucum·n</option>
+								</select>
+								<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
+							</div>
+							
+							<label for="fecha" class="col-2 col-form-label">Fecha de Public.</label>
+							<div class="col-3">
+								<input class="form-control" type="date" id="fecha" 
+								name="sucursal-fecha" 
+								th:field="*{fechaInicio}">
+								<div class="text-danger" th:if="${#fields.hasErrors('fechaInicio')}" th:errors="*{fechaInicio}"></div>
+							</div>
+							
+							<div class="row mb-3">
+								<label for="e-mail" class="col-8 col-form-label">E-mail</label>
+								<div class="col-10">
+									<input class="form-control" type="email" id="e-mail" 
+									name="sucursal-email" th:field="*{email}">
+								</div>
+								<div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+						 </div>
+						 
+						 <div class="row mb-3">
+							<label for="telefono" class="col-8 col-form-label">TelÈfono</label>
+							<div class="col-10">
+								<input class="form-control" type="text" id="telefono" 
+								name="sucursal-telefono" th:field="*{telefono}">
+							</div>
+							<div class="text-danger" th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></div>
+						 </div>
+									
+							
+							<button class="col-10 btn btn-primary btn-lg" type="submit" th:text="${edicion}?'Modificar':'Guardar'"></button>		           
+				      		<hr class="my-4">
+						</div>
+    	 			</form>
+    	 		</div>
+    	 	</div>
+    	 </main>	 
 		</div>
 	  <footer th:replace="~{layouts/footer :: footer}"></footer>	
 	</body>

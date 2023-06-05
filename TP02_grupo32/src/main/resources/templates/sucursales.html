@@ -11,19 +11,21 @@
 	    <nav th:replace="~{layouts/nav :: nav}"></nav>
 		
 		<section id="content-sucursal" class="secSucursal">
-			<a th:href="@{/sucursal/nuevo}">Nueva Sucursal</a>
-			<table class="table table-striped">
+			<h3 class="mt-5 mb-3">Listado de Sucursal</h3>
+			<table class="table table-striped table-hover mb-5">
 				<tr>
-					<th>Nombre</th>
-					<th>Dirección</th>
-					<th>Provincia</th>
-					<th>Fecha Inicio</th>
-					<th>E-mail</th>
-					<th>Teléfono</th>
-					<th>Acciones</th>
+					<th scope="col">Código</th>
+					<th scope="col">Nombre</th>
+					<th scope="col">Dirección</th>
+					<th scope="col">Provincia</th>
+					<th scope="col">Fecha Inicio</th>
+					<th scope="col">E-mail</th>
+					<th scope="col">Teléfono</th>
+					<th scope="col">Acciones</th>
 				</tr>
 				
 				<tr th:each="sucu: ${sucursales}">
+					<td th:text="${sucu.codigo}"></td>
 					<td th:text="${sucu.nombre}"></td>
 					<td th:text="${sucu.direccion}"></td>
 					<td th:text="${sucu.provincia}"></td>
@@ -31,8 +33,8 @@
 					<td th:text="${sucu.email}"></td>
 					<td th:text="${sucu.telefono}"></td>
 					<td>						
-					   <a th:href="@{/sucursal/modificar/}+${sucu.nombre}">Editar</a>
-	   				   <a th:href="@{/sucursal/eliminar/}+${sucu.nombre}">Eliminar</a>
+					   <a th:href="@{/sucursal/modificar/}+${sucu.nombre}" class="btn btn-success btn-sm">Editar</a>
+	   				   <a th:href="@{/sucursal/eliminar/}+${sucu.nombre}" class="btn btn-danger btn-sm"> Eliminar</a>
 					</td>
 				</tr>
 			</table>
