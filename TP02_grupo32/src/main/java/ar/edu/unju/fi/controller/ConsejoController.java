@@ -77,7 +77,9 @@ public class ConsejoController {
 	public String modificarConsejo(@Valid @ModelAttribute("consejo") Consejo consejo, BindingResult result) {
 		ModelAndView modelView = new ModelAndView("consejos");
 		if(result.hasErrors()) {
+			boolean edicion=true;
 			modelView.setViewName("consejos-nuevo");
+			modelView.addObject("edicion", edicion);
 			modelView.addObject("consejo", consejo);
 			return "consejos-nuevo";
 		}

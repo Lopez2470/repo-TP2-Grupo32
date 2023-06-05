@@ -29,8 +29,8 @@
 						<td th:text="${produ.categoriaProducto}"></td>
 						<td th:text="${produ.calcularDescuento()}"></td>
 						<td>
-							<a th:href="@{/producto/modificar/}+${produ.codigoProducto}" class="btn btn-success btn-sm">Editar</a>
-							<a th:href="@{/producto/eliminar/}+ ${produ.codigoProducto}" class="btn btn-danger btn-sm">Eliminar</a>
+							<a th:href="@{/producto/modificar/}+${produ.codigoProducto}" class="btn btn btn-outline-success btn-sm">Editar</a>
+							<a th:href="@{/producto/eliminar/}+ ${produ.codigoProducto}" class="btn btn btn-outline-danger btn-sm">Eliminar</a>
 						</td>
 					</tr>
 				</table>
