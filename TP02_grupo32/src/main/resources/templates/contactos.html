@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	 <head th:replace="~{layouts/head :: head}">
-	   <!--  <meta charset="UTF-8" />
+<head th:replace="~{layouts/head :: head}">
+<!--  <meta charset="UTF-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link rel="stylesheet" th:href="@{/css/estilos.css}">  -->
-	 </head>
-	 <body>
-	    <header th:replace="~{layouts/header :: header}"></header>
-	    <nav th:replace="~{layouts/nav :: nav}"></nav>
-		<div class="container">
-			<main>
-				<h2 class="mt-5 mb-3">Envianos tu consulta</h2>
-		  		<form class="mt-5 mb-3" action="#">
-					<br>
-					<li>
-					    <label for="name">Nombre:</label><br>
-					    <input class="field" type="text" id="name" name="name0">
-			  		</li><br>	
-			  		<li>
-					    <label for="name">Email:</label><br>
-					    <input class="field" type="email" id="email" name="email0">
-			  		</li><br>	
-			  		<li>
-					    <label for="name">Ciudad:</label><br>
-					    <input class="field" type="text" id="ciudad" name="ciudad0">
-			  		</li><br>	
-			  		<li>
-			    		<label for="msg">Mensaje:</label><br>
-			    		<textarea class="field"></textarea><br>
-			  		</li><br>
-			 		
-			 		<button class="col-5 btn btn-primary btn-lg" type="submit">Enviar</button>
-			 			 				
-				</form>
-		    </main>
-		</div>
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
-	</body>
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
+	<div class="container">
+		<main>
+			<h2 class="mt-5 mb-3">Envianos tu consulta</h2>
+			<p>Te responderemos a la brevedad (siempre en horario comercial y
+				días laborables).</p>
+
+			<form class="mt-5 mb-5" action="#" method="POST">
+				<div class="form-group col-md-8 col-lg-6 mb-3">
+					<label for="nombre">Nombre</label> <input type="text"
+						class="form-control" id="nombre" placeholder="Ingresa tu nombre"
+						required>
+				</div>
+				<div class="form-group col-md-8 col-lg-6 mb-3">
+					<label for="email">Email</label> <input type="email"
+						class="form-control" id="email" placeholder="Ingresa tu email"
+						required>
+				</div>
+				<div class="form-group col-md-8 col-lg-6 mb-3">
+					<label for="ciudad">Ciudad</label> <input type="text"
+						class="form-control" id="ciudad" placeholder="Ingresa tu ciudad"
+						required>
+				</div>
+				<div class="form-group col-md-8 col-lg-6 mb-4">
+					<label for="mensaje">Mensaje</label>
+					<textarea class="form-control" id="mensaje" rows="5"
+						placeholder="Ingresa tu mensaje" required></textarea>
+				</div>
+				<button type="submit"
+					class="btn btn-primary col-12 col-md-8 col-lg-6">Enviar</button>
+			</form>
+		</main>
+	</div>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+</body>
 </html>

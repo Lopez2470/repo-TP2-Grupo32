@@ -1,103 +1,197 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	 <head th:replace="~{layouts/head :: head}">
-	  <!--   <meta charset="UTF-8" />
+<head th:replace="~{layouts/head :: head}">
+<!--   <meta charset="UTF-8" />
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link rel="stylesheet" th:href="@{/css/estilos.css}"> -->
-	 </head>
-	 <body>
-	    <header th:replace="~{layouts/header :: header}"></header>
-	    <nav th:replace="~{layouts/nav :: nav}"></nav>
-		<div class="container">
-			<main>
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
+	<div class="container">
+		<main>
+			<section>
+				<h2 class="mt-5 mb-3">NUESTROS PRODUCTOS</h2>
+
+
+
 				<section>
-					<h2 class="mt-5 mb-3">NUESTROS PRODUCTOS</h2>
-					<section class="img-prod">
-					<a th:href="@{#}">  <img src="/images/dog-selection.png" alt="Dog Selection" class="alinear"></a>
-					<a th:href="@{#}">  <img src="/images/Valiant_Logo.png" alt="Vailant Criadores" class="alinear"></a>
-					<a th:href="@{#}">  <img src="/images/Vital-can.png" alt="Vital Can" class="alinear"></a>
-					<a th:href="@{#}">  <img src="/images/Logo-Sieger.png" alt="Vital Can" class="alinear"></a>
-					<a th:href="@{#}">  <img src="/images/Logo-Farmina.png" alt="Farmina" class="alinear"></a>
-					<a th:href="@{#}">  <img src="/images/pedigree.png" alt="Pedigree" class="alinear"></a>
-					<a th:href="@{#}">  <img src="/images/royal-canin.png" alt="Royal Canin" class="alinear"></a>
-					<a th:href="@{#}">  <img src="/images/dog-chaw.png" alt="Dog Chow" class="alinear"></a>
-					</section>
-				</section>
-				<section>
-					<article>
-						<h2 class="mt-5">Categorías</h2>
-						<div class="listas">
-						    <div class="lista">
-						        <h4><a href="#" title="">Perros</a></h4>
-						        <ul class="list-group">
-						            <li class="list-group-item"><a th:href="@{#}" title="">Comida para perros</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Antiparasitarios Perro</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Snacks Perro</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Peluquería e Higiene Perro</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Paseo Perro</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Transporte y Viaje</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Cuidado de la salud perro</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Puertas, confort y descanso</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Adiestramiento y educación</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Juguetes perros</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Comederos y bebederos perros</a></li>
-						            <li class="list-group-item"><a th:href="@{#}" title="">Ropa para perros</a></li>
-						        </ul>
-						    </div>
-						
-						    <div class="lista">
-							     <h4><a href="#" title="">Gatos</a></h4>
-							     <ul class="list-group">
-							         <li class="list-group-item"><a th:href="@{#}" title="">Rascadores gatos</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Comida gatos</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Golosinas gatos</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Cuidado de la salud gato</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Antiparasitarios gatos</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Peluquería y baño</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Peluquería e Higiene gatos</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Arenas y suministros gatos</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Malta gatos</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Paseo Gato</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Transporte y viaje con gatos</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Juguetes gatos</a></li>
-							         <li class="list-group-item"><a th:href="@{#}" title="">Comederos y bebedores gatos</a></li>
-							     </ul>
-							 </div>
+					<div class="row align-items-center justify-content-center">
+						<div class="col-6 col-lg-3">
+							<a href="#"
+								class="d-flex align-items-center justify-content-center p-3 border border-2 rounded my-3">
+								<img src="/images/dog-selection.png" alt="Dog Selection"
+								class="img-fluid">
+							</a>
 						</div>
-					</article>
+						<div class="col-6 col-lg-3">
+							<a href="#"
+								class="d-flex align-items-center justify-content-center p-3 border border-2 rounded my-3">
+								<img src="/images/Valiant_Logo.png" alt="Vailant Criadores"
+								class="img-fluid">
+							</a>
+						</div>
+						<div class="col-6 col-lg-3">
+							<a href="#"
+								class="d-flex align-items-center justify-content-center p-3 border border-2 rounded my-3">
+								<img src="/images/Vital-can.png" alt="Vital Can"
+								class="img-fluid">
+							</a>
+						</div>
+						<div class="col-6 col-lg-3">
+							<a href="#"
+								class="d-flex align-items-center justify-content-center p-3 border border-2 rounded my-3">
+								<img src="/images/Logo-Sieger.png" alt="Vital Can"
+								class="img-fluid">
+							</a>
+						</div>
+					</div>
+
+					<div class="row align-items-center justify-content-center">
+						<div class="col-6 col-lg-3">
+							<a href="#"
+								class="d-flex align-items-center justify-content-center p-3 border border-2 rounded my-3">
+								<img src="/images/Logo-Farmina.png" alt="Farmina"
+								class="img-fluid">
+							</a>
+						</div>
+						<div class="col-6 col-lg-3">
+							<a href="#"
+								class="d-flex align-items-center justify-content-center p-3 border border-2 rounded my-3">
+								<img src="/images/pedigree.png" alt="Pedigree" class="img-fluid">
+							</a>
+						</div>
+						<div class="col-6 col-lg-3">
+							<a href="#"
+								class="d-flex align-items-center justify-content-center p-3 border border-2 rounded my-3">
+								<img src="/images/royal-canin.png" alt="Royal Canin"
+								class="img-fluid">
+							</a>
+						</div>
+						<div class="col-6 col-lg-3">
+							<a href="#"
+								class="d-flex align-items-center justify-content-center p-3 border border-2 rounded my-3">
+								<img src="/images/dog-chaw.png" alt="Dog Chow" class="img-fluid">
+							</a>
+						</div>
+					</div>
 				</section>
-				<section>
-					<h2 class="mt-5">Productos Destacados</h2>
-					<article>
-						<figure>
-							<img src="/images/cunas.png" alt="Cunas para Perros">
-							<figcaption>
-								<Strong><em>Oferta</em> de la Semana</Strong><br>
-							</figcaption>
-						</figure>
-					</article>
-					<article>
-						<figure>
-							<img src="/images/cama-redonda.png" alt="Camas redondas para perros">
-							<figcaption>
-								<Strong><em>Oferta</em> de la Semana</Strong><br>
-							</figcaption>
-						</figure>
-					</article>
-					<article>
-						<p>Mira más juguetes para gatos haciendo <strong>click</strong> en la imagen</p><br>
-						<a th:href="@{#}"><img src="/images/poste-gatos.jpg" alt="Trixie Poste Rascador Galeno"></a>
-					</article>
-				</section>
-		        <section>
-		          <article>  
-		            <a th:href="@{#}">
-		              <img src="/images/Promociones.png" alt="Promociones y descuentos"/>
-		            </a>
-		          </article>
-		        </section>
-		    </main>
-		</div>
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
-	</body>
+			</section>
+			<section>
+				<article>
+					<h2 class="mt-5">Categorías de productos</h2>
+
+					<div class="row">
+						<div class="col-12 col-sm-6 col-md-5 col-lg-4 my-3">
+							<div>
+								<h4>
+									<a href="#">Perros</a>
+								</h4>
+								<ul class="list-group">
+									<li class="list-group-item"><a href="#" title="">Comida
+											para perros</a></li>
+									<li class="list-group-item"><a href="#" title="">Antiparasitarios
+											Perro</a></li>
+									<li class="list-group-item"><a href="#" title="">Snacks
+											Perro</a></li>
+									<li class="list-group-item"><a href="#" title="">Peluquería
+											e Higiene Perro</a></li>
+									<li class="list-group-item"><a href="#" title="">Paseo
+											Perro</a></li>
+									<li class="list-group-item"><a href="#" title="">Transporte
+											y Viaje</a></li>
+									<li class="list-group-item"><a href="#" title="">Cuidado
+											de la salud perro</a></li>
+									<li class="list-group-item"><a href="#" title="">Puertas,
+											confort y descanso</a></li>
+									<li class="list-group-item"><a href="#" title="">Adiestramiento
+											y educación</a></li>
+									<li class="list-group-item"><a href="#" title="">Juguetes
+											perros</a></li>
+									<li class="list-group-item"><a href="#" title="">Comederos
+											y bebederos perros</a></li>
+									<li class="list-group-item"><a href="#" title="">Ropa
+											para perros</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-12 col-sm-6 col-md-5 col-lg-4 my-3">
+							<div>
+								<h4>
+									<a href="#">Gatos</a>
+								</h4>
+								<ul class="list-group">
+									<li class="list-group-item"><a href="#" title="">Rascadores
+											gatos</a></li>
+									<li class="list-group-item"><a href="#" title="">Comida
+											gatos</a></li>
+									<li class="list-group-item"><a href="#" title="">Golosinas
+											gatos</a></li>
+									<li class="list-group-item"><a href="#" title="">Cuidado
+											de la salud gato</a></li>
+									<li class="list-group-item"><a href="#" title="">Antiparasitarios
+											gatos</a></li>
+									<li class="list-group-item"><a href="#" title="">Peluquería
+											y baño</a></li>
+									<li class="list-group-item"><a href="#" title="">Peluquería
+											e Higiene gatos</a></li>
+									<li class="list-group-item"><a href="#" title="">Arenas
+											y suministros gatos</a></li>
+									<li class="list-group-item"><a href="#" title="">Malta
+											gatos</a></li>
+									<li class="list-group-item"><a href="#" title="">Paseo
+											Gato</a></li>
+									<li class="list-group-item"><a href="#" title="">Transporte
+											y viaje con gatos</a></li>
+									<li class="list-group-item"><a href="#" title="">Juguetes
+											gatos</a></li>
+									<li class="list-group-item"><a href="#" title="">Comederos
+											y bebedores gatos</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</article>
+			</section>
+
+			<section>
+				<h2 class="my-4">Productos Destacados</h2>
+				<article>
+					<figure class="my-5 col-md-9">
+						<img src="/images/cunas.png" class="img-fluid"
+							alt="Cunas para Perros">
+						<figcaption class="text-center mx-auto">
+							<Strong><em>Oferta</em> de la Semana</Strong>
+						</figcaption>
+					</figure>
+				</article>
+				<article>
+					<figure class="my-5 col-md-9">
+						<img src="/images/cama-redonda.png" class="img-fluid"
+							alt="Camas redondas para perros">
+						<figcaption class="text-center mx-auto">
+							<Strong><em>Oferta</em> de la Semana</Strong>
+						</figcaption>
+					</figure>
+				</article>
+				<article>
+					<p>
+						Mira más juguetes para gatos haciendo <strong>click</strong> en la
+						imagen
+					</p>
+					<a th:href="@{#}"><img src="/images/poste-gatos.jpg"
+						class="img-fluid" alt="Trixie Poste Rascador Galeno"></a>
+				</article>
+			</section>
+			<section>
+				<article>
+					<a href="#"> <img class="img-fluid"
+						src="/images/Promociones.png" alt="Promociones y descuentos" /></a>
+				</article>
+			</section>
+		</main>
+	</div>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+</body>
 </html>
