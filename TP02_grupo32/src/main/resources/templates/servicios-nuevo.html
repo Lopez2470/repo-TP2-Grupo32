@@ -16,8 +16,11 @@
 			          <div class="row g-3">
 			          
 				          <div class="col-sm-6">
-				             <label for="codigo" class="form-label">CÃ³digo del Servicio</label>
+				             <label for="codigo" class="form-label">Código del Servicio</label>
+							 <input type="number" class="form-control" id="codigo" name="servicio-codigo" th:field="*{codigoServ}" readonly="readonly">				             
+				             <!-- 
 				             <input type="number" class="form-control" id="codigo" name="servicio-codigo" th:field="*{codigoServ}" th:readonly="${edicion}?'readonly'">
+				              --> 
 				             <div class="text-danger" th:if="${#fields.hasErrors('codigoServ')}" th:errors="*{codigoServ}"></div>  
 				          </div>		
 
