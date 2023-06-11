@@ -21,7 +21,10 @@
 			          
 			            <div class="col-sm-6">
 			              <label for="codigo" class="form-label">Código del Producto</label>
+			              <input type="number" class="form-control" id="codigo" name="producto_codigo" th:field="*{codigoProducto}" readonly="readonly">
+			              <!-- 
 			              <input type="number" class="form-control" id="codigo" name="producto_codigo" th:field="*{codigoProducto}">
+			               -->
 			              <div class="text-danger" th:if="${#fields.hasErrors('codigoProducto')}" th:errors="*{codigoProducto}"></div>  
 			            </div>		            
           
