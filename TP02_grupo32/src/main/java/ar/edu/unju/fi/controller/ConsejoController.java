@@ -13,18 +13,16 @@ import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.listas.ListaConsejo;
 import ar.edu.unju.fi.model.Consejo;
+import ar.edu.unju.fi.service.IConsejoService;
 import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/")
 /*@RequestMapping("/consejo")*/
 public class ConsejoController {
-	
+	//
 	@Autowired
-	private ListaConsejo listaConsejos;
-	
-	@Autowired
-	private Consejo consejo;
+	private IConsejoService consejoService;
 	
 	@GetMapping("consejo")
 	public String getConsejo() {
@@ -33,14 +31,14 @@ public class ConsejoController {
 	
 	@GetMapping("consejo/listado")
 	public String getListadoConsejoPage(Model model) {
-		model.addAttribute("consejos", listaConsejos.getConsejos());
+		model.addAttribute("consejos", consejoService.getConsejos());
 		return "consejos-listado";
 	}
 	
 	@GetMapping("consejo/nuevo")
 	public String getNuevoConsejo(Model model) {
 		boolean edicion = false;
-		model.addAttribute("consejo", consejo);
+		model.addAttribute("consejo", consejoService.getConsejo());
 		model.addAttribute("edicion", edicion);
 		return"consejos-nuevo";
 	}
@@ -53,58 +51,39 @@ public class ConsejoController {
 			modelView.addObject("consejo", consejo);
 			return "consejos-nuevo";
 		}
-		listaConsejos.getConsejos().add(consejo);
-		modelView.addObject("consejos", listaConsejos.getConsejos());
+		consejoService.guardarConsejo(consejo);
+		modelView.addObject("consejos", consejoService.getConsejos());
 		return"redirect:/consejo/listado";
 	}
 	
 	@GetMapping("consejo/modificar/{codigoConsejo}")
 	public String getModificarConsejo(Model model, @PathVariable(value = "codigoConsejo") int codigoConsejo) {
-		Consejo consejoEncontrado = new Consejo();
+		Consejo consejoEncontrado = consejoService.buscarConsejoById(codigoConsejo);
 		boolean edicion=true;
-		for(Consejo conse : listaConsejos.getConsejos()){
-			if(conse.getCodigoConsejo() == codigoConsejo) {
-				consejoEncontrado = conse;
-				break;
-			}
-		}
 		model.addAttribute("consejo", consejoEncontrado);
 		model.addAttribute("edicion", edicion);
 		return"consejos-nuevo";
 	}	
 	
 	@PostMapping("consejo/modificar")
-	public String modificarConsejo(@Valid @ModelAttribute("consejo") Consejo consejo, BindingResult result) {
-		ModelAndView modelView = new ModelAndView("consejos");
+	public String modificarConsejo(@Valid @ModelAttribute("consejo") Consejo consejo, BindingResult result, Model model) {
 		if(result.hasErrors()) {
-			boolean edicion=true;
-			modelView.setViewName("consejos-nuevo");
-			modelView.addObject("edicion", edicion);
-			modelView.addObject("consejo", consejo);
+			model.addAttribute("edicion", true);
 			return "consejos-nuevo";
 		}
-		
-		for(Consejo conse : listaConsejos.getConsejos()) {
-			if(conse.getCodigoConsejo() == consejo.getCodigoConsejo()) {
-				conse.setTituloConsejo(consejo.getTituloConsejo());
-				conse.setContenidoConsejo(consejo.getContenidoConsejo());
-				conse.setFechaPublicacionConsejo(consejo.getFechaPublicacionConsejo());
-				conse.setAutorConsejo(consejo.getAutorConsejo());
-				conse.setCategoriaConsejo(consejo.getCategoriaConsejo());
-				break;
-			}
-		}
+		consejoService.modificarConsejo(consejo);
 		return "redirect:/consejo/listado";
 	}
-	
+		
 	@GetMapping("consejo/eliminar/{codigoConsejo}")
 	public String eliminarConsejo(@PathVariable(value="codigoConsejo") int codigoConsejo) {
-		for(Consejo conse : listaConsejos.getConsejos()) {
+		consejoService.eliminarConsejo(codigoConsejo);
+		/*for(Consejo conse : consejoService.getConsejos()) {
 			if (conse.getCodigoConsejo() == codigoConsejo) {
-				listaConsejos.getConsejos().remove(conse);
+				consejoService.getConsejos().remove(conse);
 				break;
 			}
-		}
+		}*/
 		return "redirect:/consejo/listado";
 	}
 }
