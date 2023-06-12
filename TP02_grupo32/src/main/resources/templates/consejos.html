@@ -1,123 +1,237 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head th:replace="~{layouts/head :: head}">
-	   <!--  <meta charset="UTF-8"/>
+<head th:replace="~{layouts/head :: head}">
+<!--  <meta charset="UTF-8"/>
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link rel="stylesheet" th:href="@{/css/estilos.css}">  -->
-	</head>
-	<body>
-	    <header th:replace="~{layouts/header :: header}"></header>
-	    <nav th:replace="~{layouts/nav :: nav}"></nav>
-	    <div class="container">
-	      <main> 
-		      <h1 class="mt-5">Consejos para cuidar a nuestras mascotas</h1>
-		      <hr>
-			  <article>
-			      <h4><strong>Cómo elegir el alimento para tu cachorro</strong></h4>
-			      <figure class="figure">
-			      	<img class="figure-img img-fluid rounded" src="/images/como-elegir-el-alimento.jpg" alt="Cinco cachorros esperando la comida">
-			      	<figcaption class="figure-caption text-end">Cinco cachorros Rottweiler sperando la comida.</figcaption>
-			      </figure>
-			      
-				  <p>Qué tener en cuenta para elegir el alimento que le dará a tu cachorro una nutrición completa y equilibrada para que se convierta en un gran perro​.<br/>
-					 Los alimentos para mascotas de bajo costo no le dan a tu perro una nutrición de primera calidad.<br/>
-					 Cuando tu cachorro se siente bien por dentro, se nota por fuera, y lo demuestra todos los días con energía y un pelo brilloso.<br/> 
-					 Hay algunos signos que te indican si tu perro está sacando provecho de su alimento.
-				  </p>
-				  <hr>
-				  <h4><strong>Dónde comprar</strong></h4>
-				  <p>En <em><strong>Tienda de Mascotas</strong></em> te damos el asesoramiento experto sobre la alimentación de tu perro teniendo en cuenta su edad, 
-					 el tamaño de la raza y las intolerancias.
-				  </p>
-				  <hr>
-				  <h4><strong>Busca calidad</strong></h4>
-				  <p>Revisa la lista de ingredientes para saber qué contiene realmente la comida de tu perro.</p>
-			      <hr>
-				  <h4><strong>Busca la mejor relación precio-calidad</strong></h4>
-				  <p>Para darle a tu perro alimento seco de alta calidad sigue las instrucciones detalladas. A partir de estos datos podrás calcular 
-					 el número de comidas por kilo y la cantidad de raciones que rinde cada bolsa.<br/>
-					 Haz una comparación tomando en cuenta lo que cuesta cada comida. Una bolsa de 15 kg de alimento seco puede parecer cara, pero quizá te permita 
-					 alimentar a tu perro durante dos meses.
-				  </p>
-				  <figure class="figure">
-				  	<img class="figure-img img-fluid rounded" src="/images/dos-perritos-comiendo.jpg" alt="Dos perritos comiendo"><br/>
-				  	<figcaption class="figure-caption text-end">Dos perritos Golden Retriever comiendo.</figcaption>
-				  </figure>
-				  <hr>
-				  <h4><strong>No cambies de comida</strong></h4>
-				  <p>Con una comida completa y equilibrada tu perro no necesita nada más. Si tiene molestias estomacales, probablemente se trata de algo que comió afuera. No conviene cambiar de dieta o de suplemento si no lo recomienda el veterinario. 
-					 Como recompensa o para jugar, puedes darle golosinas especiales para perros.<br/>
-					 La comida enlatada puede contener hasta un 80% de agua y hay que consumirla en poco tiempo una vez abierta. 
-					 El alimento seco de gran calidad contiene menos del 10% de agua, es muy digerible, práctico y se mantiene fresco varias semanas después de abrir la bolsa.
-				  </p>
-		 		  <hr>
-				  <h4><strong>¿Cómo leer las etiquetas?</strong></h4>
-				  <p>Te lleva menos de un minuto leer la etiqueta de un alimento para perros, pero la información que refleja es esencial para tu decisión de compra.<br />
-					 El nombre del alimento da indicios sobre qué cantidad de un ingrediente se encuentra realmente presente. 
-					 Por ejemplo, los alimentos que incluyen una fuente de proteínas en el nombre del producto, por ejemplo &quot;Fórmula de carne&quot;, 
-					 tienen que contener por lo menos un 25% de ese ingrediente.<br/>
-					 El panel de ingredientes incluye una lista con todas las fuentes de alimento del producto en orden descendente. 
-					 En el caso del alimento seco, un ingrediente clave tiene que ser una fuente de proteínas de alta calidad, como pollo o cordero.
-				   </p>
-				   <p>Se debe incluir el número de teléfono del fabricante. Esto demuestra que la compañía acepta los comentarios de sus clientes. 
-					  Todos los productos de alta calidad deben encontrarse 100% garantizados o se te devuelve tu dinero.
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
+	<div class="container">
+		<main>
+			<h1 class="mt-5">Consejos para cuidar a nuestras mascotas</h1>
+			<hr>
+			<div class="contanier mt-5 mb-5">
+				<div class="row justify-content-center">
+					<div class="col-12 col-sm-6 col-md-4 mt-2">
+
+						<div class="card">
+							<img src="/images/como-elegir-el-alimento.jpg"
+								class="card-img-top" alt="Cinco cachorros esperando la comida">
+							<div class="card-body">
+								<h5 class="card-title">Cómo elegir el alimento para tu
+									cachorro</h5>
+								<p class="card-text">
+									Qué tener en cuenta para elegir el alimento que le dará a tu
+									cachorro una nutrición completa y equilibrada para que se
+									convierta en un gran perro​.<br /> Los alimentos para mascotas
+									de bajo costo no le dan a tu perro una nutrición de primera
+									calidad.<br />
+								</p>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-6 col-md-4 mt-2">
+						<div class="card">
+							<img src="/images/dondecomprar.png" class="card-img-top"
+								alt="Mujer Vendiendo">
+							<div class="card-body">
+								<h5 class="card-title">Dónde comprar</h5>
+								<p class="card-text">
+									En <em><strong>Tienda de Mascotas</strong></em> te damos el
+									asesoramiento experto sobre la alimentación de tu perro
+									teniendo en cuenta su edad, el tamaño de la raza y las
+									intolerancias.
+								</p>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-6 col-md-4 mt-2">
+						<div class="card">
+							<img src="/images/comida-calidad.png" class="card-img-top"
+								alt="Alimentos de calidad">
+							<div class="card-body">
+								<h5 class="card-title">Busca calidad</h5>
+								<p class="card-text">Revisa la lista de ingredientes para
+									saber qué contiene realmente la comida de tu perro.</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-6 col-md-4 mt-2">
+						<div class="card">
+							<img src="/images/dos-perritos-comiendo.jpg" class="card-img-top"
+								alt="Dos perritos comiendo">
+							<div class="card-body">
+								<h5 class="card-title">Busca la mejor relación
+									precio-calidad</h5>
+								<p class="card-text">
+									Para darle a tu perro alimento seco de alta calidad sigue las
+									instrucciones detalladas. A partir de estos datos podrás
+									calcular el número de comidas por kilo y la cantidad de
+									raciones que rinde cada bolsa.<br /> Haz una comparación
+									tomando en cuenta lo que cuesta cada comida. Una bolsa de 15 kg
+									de alimento seco puede parecer cara, pero quizá te permita
+									alimentar a tu perro durante dos meses.
+								</p>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-6 col-md-4 mt-2">
+						<div class="card">
+							<img src="/images/nocambie.png" class="card-img-top"
+								alt="Dos perritos con platos">
+							<div class="card-body">
+								<h5 class="card-title">No cambies de comida</h5>
+								<p class="card-text">
+									Con una comida completa y equilibrada tu perro no necesita nada
+									más. Si tiene molestias estomacales, probablemente se trata de
+									algo que comió afuera. No conviene cambiar de dieta o de
+									suplemento si no lo recomienda el veterinario. Como recompensa
+									o para jugar, puedes darle golosinas especiales para perros.<br />
+									La comida enlatada puede contener hasta un 80% de agua y hay
+									que consumirla en poco tiempo una vez abierta. El alimento seco
+									de gran calidad contiene menos del 10% de agua, es muy
+									digerible, práctico y se mantiene fresco varias semanas después
+									de abrir la bolsa.
+								</p>
+
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 col-md-4 mt-2">
+						<div class="card">
+							<img src="/images/leer-etiqueta-comida-perro.jpg"
+								class="card-img-top" alt="Mano en etiqueta">
+							<div class="card-body">
+								<h5 class="card-title">¿Cómo leer las etiquetas?</h5>
+								<p class="card-text">
+									Te lleva menos de un minuto leer la etiqueta de un alimento
+									para perros, pero la información que refleja es esencial para
+									tu decisión de compra.<br /> El nombre del alimento da
+									indicios sobre qué cantidad de un ingrediente se encuentra
+									realmente presente. Por ejemplo, los alimentos que incluyen una
+									fuente de proteínas en el nombre del producto, por ejemplo
+									&quot;Fórmula de carne&quot;, tienen que contener por lo menos
+									un 25% de ese ingrediente.<br /> El panel de ingredientes
+									incluye una lista con todas las fuentes de alimento del
+									producto en orden descendente. En el caso del alimento seco, un
+									ingrediente clave tiene que ser una fuente de proteínas de alta
+									calidad, como pollo o cordero.
+								</p>
+
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<hr>
+
+			<div class="col-10 mx-auto">
+				<h4 class="mt-2">Son tiempos de mucha responsabilidad y
+					cuidado, eso nos incluye a todos los que vivimos en casa.</h4>
+
+				<h5 class="mt-2">Por eso te damos algunos tips para que entre
+					todos podamos llevar la cuarentena adelante, de la mejor manera
+					posible.</h5>
+
+				<div id="carouselExampleControls" class="carousel slide"
+					data-bs-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img src="/images/consejos-durante-la-cuarentena.jpg"
+								class="d-block w-100" alt="Consejos para nuestras Mascotas">
+						</div>
+						<div class="carousel-item">
+							<img src="/images/consejos-durante-la-cuarentena-01.jpg"
+								class="d-block w-100" alt="Consejos para nuestras Mascotas 01">
+						</div>
+						<div class="carousel-item">
+							<img src="/images/consejos-durante-la-cuarentena-02.jpg"
+								class="d-block w-100" alt="Consejos para nuestras Mascotas 02">
+						</div>
+						<div class="carousel-item">
+							<img src="/images/consejos-durante-la-cuarentena-03.jpg"
+								class="d-block w-100" alt="Consejos para nuestras Mascotas 03">
+						</div>
+					</div>
+					<button class="carousel-control-prev" type="button"
+						data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button"
+						data-bs-target="#carouselExampleControls" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			</div>
+		<div>
+				<hr>
+				<h4>
+					<strong>Evaluar la condición física de nuestras mascotas</strong>
+				</h4>
+				<img class="img-cuidados02" src="/images/Control-de-peso.jpg"
+					alt="Control de peso de  nuestras Mascotas">
+				<p>
+					Debés vigilar de forma continua la condición física del perro para
+					lograr el máximo rendimiento.<br /> ¿Mantiene un peso óptimo,
+					según el tipo, la duración y la intensidad de sus actividades?
+				</p>
+				<hr>
+				<h4>
+					<strong>Cómo controlar la condición física</strong>
+				</h4>
+				<p>Para evaluar la condición física, colocá las manos a los
+					costados de la caja torácica del perro y bajá con cuidado las manos
+					hasta el esternón.</p>
+				<hr>
+				<h4>
+					<strong>Indicadores clave</strong>
+				</h4>
+				<p>Si las costillas sobresalen, es probable que el perro esté
+					demasiado delgado.</p>
+				<p>Si podés sentir cada unas de las costillas y el abdomen está
+					ligeramente metido cuando lo ves, significa que su peso es el
+					adecuado.</p>
+				<p>Si no podés detectar las costillas de forma fácil, le falta
+					cintura o le cuelga la panza, significa que necesita perder peso.</p>
+				<hr>
+				<h4>
+					<strong>¿Por qué motivos un perro puede tener sobrepeso?</strong>
+				</h4>
+				<p>En resumen, es probable que el perro consuma más calorías de
+					las que quema. Los perros de alto rendimiento queman más calorías
+					durante las competencias o debido a la alta carga de trabajo, y
+					menos durante los periodos de menor actividad.</p>
+				<hr>
+				<h4>
+					<strong>Manejo de la nutrición</strong>
+				</h4>
+				<p>Si descubrís que el perro no tiene un peso óptimo según su
+					nivel de actividad, un buen primer paso para controlarlo es evaluar
+					su nutrición. Durante la temporada baja de los perros de alto
+					rendimiento, es posible que se deban ajustar los horarios de
+					alimentación o cambiar a un producto con menos energía concentrada.
 					</p>
-					<p>La etiqueta también recomienda con qué cantidad alimentar a su perro diariamente. 
-					   Utiliza estas recomendaciones como punto de inicio para determinar las cantidades de alimentación.
-					</p>
-				</article>
-				<article>
-					<hr>
-					<h4><strong>Consejos para cuidar nuestras mascotas en cuarentena</strong></h4>
-					<img class="img-cuidados02" src="/images/consejos-durante-la-cuarentena.jpg" alt="Consejos para nuestras Mascotas">
-					<p>Son tiempos de mucha responsabilidad y cuidado, eso nos incluye a todos los que vivimos en casa.</p>
-					<p>Por eso te damos algunos tips para que entre todos podamos llevar la cuarentena adelante, de la mejor manera posible.</p>
-					<img class="img-cuidados03" src="/images/consejos-durante-la-cuarentena-01.jpg" alt="Consejos para nuestras Mascotas 01">
-					<img class="img-cuidados03" src="/images/consejos-durante-la-cuarentena-02.jpg" alt="Consejos para nuestras Mascotas 02">
-					<section class="separador01"></section> 
-					<img class="img-cuidados03" src="/images/consejos-durante-la-cuarentena-03.jpg" alt="Consejos para nuestras Mascotas 03">
-				 </article>
-				 <section class="separador01"></section> 
-				 <article>
-					 <hr>
-					 <h4><strong>Evaluar la condición física de nuestras mascotas</strong></h4>
-					 <img class="img-cuidados02" src="/images/Control-de-peso.jpg" alt="Control de peso de  nuestras Mascotas">
-					 <p>Debés vigilar de forma continua la condición física del perro para lograr el máximo rendimiento.<br/>
-					    ¿Mantiene un peso óptimo, según el tipo, la duración y la intensidad de sus actividades?
-					 </p>
-					 <hr>
-					 <h4><strong>Cómo controlar la condición física</strong></h4>
-					 <p>Para evaluar la condición física, colocá las manos a los costados de la caja torácica del perro y 
-					    bajá con cuidado las manos hasta el esternón.
-					 </p>
-					 <hr>
-					 <h4><strong>Indicadores clave</strong></h4>
-					 <p>Si las costillas sobresalen, es probable que el perro esté demasiado delgado.</p>
-					 <p>Si podés sentir cada unas de las costillas y el abdomen está ligeramente metido cuando lo ves, 
-					    significa que su peso es el adecuado.
-					 </p>
-					 <p>Si no podés detectar las costillas de forma fácil, le falta cintura o le cuelga la panza, 
-					    significa que necesita perder peso.
-					 </p>
-					 <hr>
-			  		 <h4><strong>¿Por qué motivos un perro puede tener sobrepeso?</strong></h4>
-					 <p>En resumen, es probable que el perro consuma más calorías de las que quema. 
-					    Los perros de alto rendimiento queman más calorías durante las competencias o debido a la alta carga de trabajo, 
-					    y menos durante los periodos de menor actividad.
-					 </p>
-					 <hr>
-					 <h4><strong>Manejo de la nutrición</strong></h4>
-					 <p>Si descubrís que el perro no tiene un peso óptimo según su nivel de actividad, un buen primer paso para controlarlo es evaluar su nutrición. 
-					    Durante la temporada baja de los perros de alto rendimiento, es posible que se deban ajustar los horarios de alimentación o 
-					    cambiar a un producto con menos energía concentrada. 
-					    Si necesitás más ayuda con la elección de un producto o con el tamaño de las porciones, comunicate con el veterinario.
-					 </p>
-					 <p><a th:href="@{https://www.eukanuba.com/ar/health-and-fitness/health-and-fitness-articles/evaluating-body-condition}" 
-					     target=_blank>Fuente Eukanuba.com</a>
-					  </p>
-				   </article>    
-		      </main>
-		     </div>
-	         <footer th:replace="~{layouts/footer :: footer}"></footer>
-	    </body>
+				<p>
+					<a
+						th:href="@{https://www.eukanuba.com/ar/health-and-fitness/health-and-fitness-articles/evaluating-body-condition}"
+						target=_blank>Fuente Eukanuba.com</a>
+				</p>
+			</div>
+		</main>
+	</div>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+</body>
 </html>
