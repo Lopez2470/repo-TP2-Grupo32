@@ -2,7 +2,7 @@ package ar.edu.unju.fi.service;
 
 import java.util.List;
 
-import ar.edu.unju.fi.model.Consejo;
+import ar.edu.unju.fi.entity.Consejo;
 
 public interface IConsejoService {
 	//Definicion de los Metodos abstractos, sin definición.
@@ -20,4 +20,11 @@ public interface IConsejoService {
 	void eliminarConsejo(int id);
 	//Realiza la busqueda de un objeto consejo por el atributo titulo.
 	public Consejo buscarConsejoByTitulo(String titulo);
+	
+	//Nuevo atributo para interactuar con la DB
+	public Consejo getBy(Long id);
+	
+	public void eliminar (Consejo consejo);
+	
+	
 }
