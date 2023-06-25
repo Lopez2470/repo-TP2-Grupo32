@@ -11,7 +11,4 @@ public interface IConsejoRepository extends CrudRepository<Consejo, Long>{
 	//Lista los objetos Consejo por el estado de cada uno de los registros
 	//enviamos el parametro booleano estado para listar de acuerdo a su valor(false, true)
 	public List<Consejo> findByEstado(boolean estado);
-	
-	
-
 }

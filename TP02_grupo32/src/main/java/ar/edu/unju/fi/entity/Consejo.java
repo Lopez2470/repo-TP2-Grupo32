@@ -14,7 +14,6 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
@@ -39,7 +38,7 @@ public class Consejo {
 	@Size(max = 100, message = "Máximo de caracteres permitidos para un contenido es 100")
 	@Column(name = "con_contenido",length = 100, nullable = false)
 	private String contenidoConsejo;
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@NotNull(message = "Ingrese una fecha")
 	@Past(message = "Ingrese una fecha anterior a la actual")
 	@Column(name = "con_fecha", nullable = false)
@@ -48,6 +47,11 @@ public class Consejo {
 	@Size(max = 20, message = "Máximo de caracteres permitidos para un contenido es 20")
 	@Column(name = "con_autor",length = 30, nullable = false)
 	private String autorConsejo;
+	/**
+	 * Se agregaron dos atributos:
+	 * La clase Categoria para relacionar a otra tabla
+	 * El atributo estado para realizar las bajas logicas.
+	 */
 	@NotBlank(message = "Seleccione una categoria")
 	@Column(name = "con_categoria", nullable = false)
 	private String categoriaConsejo;
@@ -58,6 +62,7 @@ public class Consejo {
 		// TODO Auto-generated constructor stub
 	}
 
+	//Se volvieron a generar el constructor parametrizado y los getter - setters
 	public Consejo(Long id,
 			@Min(value = 10000, message = "El minimo valor del código es 10000") @Max(value = 19999, message = "El máximo valor del código es 19999") int codigoConsejo,
 			@Size(min = 8, message = "Minimo de caracteres permitidos para el título es 8") @Size(max = 40, message = "Máximo de caracteres permitidos para un título es 30") String tituloConsejo,
