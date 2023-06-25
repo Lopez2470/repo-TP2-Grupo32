@@ -30,6 +30,7 @@ public class ConsejoServiceMysqlImp implements IConsejoService{
 
 	@Override
 	public void guardarConsejo(Consejo consejo) {
+		consejo.setEstado(true);
 		consejoRepository.save(consejo);
 	}
 
@@ -40,8 +41,18 @@ public class ConsejoServiceMysqlImp implements IConsejoService{
 
 	@Override
 	public void modificarConsejo(Consejo consejo) {
-		consejoRepository.save(consejo);
-		
+		//Consejo consejoAModificar = new Consejo();
+		/*consejoAModificar.setId(consejo.getId());
+		consejoAModificar.setCodigoConsejo(consejo.getCodigoConsejo());
+		consejoAModificar.setTituloConsejo(consejo.getTituloConsejo());
+		consejoAModificar.setContenidoConsejo(consejo.getContenidoConsejo());
+		consejoAModificar.setFechaPublicacionConsejo(consejo.getFechaPublicacionConsejo());
+		consejoAModificar.setAutorConsejo(consejo.getAutorConsejo());
+		consejoAModificar.setCategoriaConsejo(consejo.getCategoriaConsejo());
+        */
+		//consejoAModificar.setEstado(true);
+		consejo.setEstado(true);
+		consejoRepository.save(consejo);	
 	}
 
 	@Override
