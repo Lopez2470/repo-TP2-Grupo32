@@ -11,5 +11,5 @@ import ar.edu.unju.fi.entity.Sucursal;
 public interface ISucursalRepository extends CrudRepository<Sucursal,Long>{
 	
 	public List<Sucursal> findByEstado(boolean estado);
-	
+	 
 }
