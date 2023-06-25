@@ -15,6 +15,7 @@
 			<table class="table table-striped table-hover mb-5"> 
 				<thead >
 			 	   <tr>
+			 	  	<!--   <th scope="col">Nro de ID</th>-->
 					  <th scope="col">Código</th>
 					  <th scope="col">Título</th>
 					  <th scope="col">Contenido</th>
@@ -25,6 +26,7 @@
 				   </tr>
 			   </thead>
 			   <tr th:each="consej: ${consejos}">
+				 <!--   <td th:text="${consej.id}"></td>-->
 			       <td th:text="${consej.codigoConsejo}"></td>
 				   <td th:text="${consej.tituloConsejo}"></td>
 				   <td th:text="${consej.contenidoConsejo}"></td>
@@ -32,8 +34,8 @@
 				   <td th:text="${consej.autorConsejo}"></td>
 				   <td th:text="${consej.categoriaConsejo}"></td>
 				   <td>	   
-					  <a th:href="@{/consejo/modificar/}+${consej.codigoConsejo}" class="btn btn btn-outline-success btn-sm">Editar</a>
-					  <a th:href="@{/consejo/eliminar/}+ ${consej.codigoConsejo}" class="btn btn btn-outline-danger btn-sm">Eliminar</a>
+					  <a th:href="@{/consejo/modificar/}+${consej.id}" class="btn btn btn-outline-success btn-sm">Editar</a>
+					  <a th:href="@{/consejo/eliminar/}+ ${consej.id}" class="btn btn btn-outline-danger btn-sm">Eliminar</a>
 				   </td>
 			   </tr>
 		    </table>	

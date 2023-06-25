@@ -1,114 +1,134 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	<head th:replace="~{layouts/head :: head}">
-	    <!-- <meta charset="UTF-8" />
+<head th:replace="~{layouts/head :: head}">
+<!-- <meta charset="UTF-8" />
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <link rel="stylesheet" th:href="@{/css/estilos.css}">  -->
-	</head>
-	<body>
-		<header th:replace="~{layouts/header :: header}"></header>
-	    <nav th:replace="~{layouts/nav :: nav}"></nav>
-	    
-		<div class="container">
-			<main>
-				<div class="row g-5">
-			      <div class="col-md-7 col-lg-8  mx-auto">
-			        <h3  class="mt-5 mb-3" th:text="${edicion}?'Modificar Consejo':'Nuevo Consejo'"></h3>
-			        <form class="mt-3" th:action="${edicion}?@{/consejo/modificar}:@{/consejo/guardar}" th:object="${consejo}" method="post">
-			        
-			          <div class="row g-3">
-			          
-				          <div class="col-sm-8">
-				             <label for="codigo" class="col-4 col-form-label">
-				             	Código de Consejo
-				             </label>
-				             <div class="col-8">
-								<input class="form-control" type="number" id="codigo" 
-								name="consejo_codigo" th:field="*{codigoConsejo}" 
-								readonly>
-								<!-- th:readonly="${edicion}?'readonly'">  -->
-							 </div>
-							 <div class="text-danger" th:if="${#fields.hasErrors('codigoConsejo')}" th:errors="*{codigoConsejo}"></div>
-				          </div>	
-				          
-				         <div class="row mb-3">
-							<label for="titulo" class="col-8 col-form-label">
-								Titulo del Consejo
-							</label>
-							<div class="col-10">
-								<input class="form-control" type="text" id="titulo" 
-								name="consejo_titulo" th:field="*{tituloConsejo}">
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
+
+	<div class="container">
+		<main>
+			<div class="row g-5">
+				<div class="col-md-7 col-lg-8  mx-auto">
+					<h3 class="mt-5 mb-3"
+						th:text="${edicion}?'Modificar Consejo':'Nuevo Consejo'"></h3>
+					<form class="mt-3"
+						th:action="${edicion}?@{/consejo/modificar}:@{/consejo/guardar}"
+						th:object="${consejo}" method="post">
+
+						<div class="row g-3">
+
+							<div class="col-sm-8 d-none" >
+								<label for="id" class="col-4 col-form-label"> NRO de ID
+								</label>
+								<div class="col-8" >
+									<input class="form-control" type="number" id="id"
+										name="consejo-id" th:field="*{id}"
+									readonly>
+									<!-- th:readonly="${edicion}?'readonly'">  -->
+								</div>
 							</div>
-							<div class="text-danger" th:if="${#fields.hasErrors('tituloConsejo')}" th:errors="*{tituloConsejo}"></div>
-						 </div>
-					
-						<div class="row mb-3">
-							<label for="contenido" class="col-8 col-form-label">
-								Contenido del Consejo
-							</label>
-							<div class="col-10">
-								<input class="form-control" type="text" id="contenido" 
-								name="consejo_contenido" th:field="*{contenidoConsejo}">
+
+
+							<div class="col-sm-8">
+								<label for="codigo" class="col-4 col-form-label"> Código
+									de Consejo </label>
+								<div class="col-8">
+									<input class="form-control" type="number" id="codigo"
+										name="consejo_codigo" th:field="*{codigoConsejo}">
+									<!-- readonly> -->
+									<!-- th:readonly="${edicion}?'readonly'">  -->
+								</div>
+								<div class="text-danger"
+									th:if="${#fields.hasErrors('codigoConsejo')}"
+									th:errors="*{codigoConsejo}"></div>
 							</div>
-							<div class="text-danger" th:if="${#fields.hasErrors('contenidoConsejo')}" th:errors="*{contenidoConsejo}"></div>
-						</div>					
-						
-						<div class="row mb-3">
-							<label for="autor" class="col-8 col-form-label">
-								Autor
-							</label>
-							<div class="col-10">
-								<input class="form-control" type="text" id="autor" 
-								name="consejo_autor" 
-								th:field="*{autorConsejo}">
+
+							<div class="row mb-3">
+								<label for="titulo" class="col-8 col-form-label"> Titulo
+									del Consejo </label>
+								<div class="col-10">
+									<input class="form-control" type="text" id="titulo"
+										name="consejo_titulo" th:field="*{tituloConsejo}">
+								</div>
+								<div class="text-danger"
+									th:if="${#fields.hasErrors('tituloConsejo')}"
+									th:errors="*{tituloConsejo}"></div>
 							</div>
-							<div class="text-danger" th:if="${#fields.hasErrors('autorConsejo')}" th:errors="*{autorConsejo}"></div>
-						</div>
-						
-						<div class="row mb-3">
-							<label for="fecha" class="col-2 col-form-label">
-								Fecha de Public.
-							</label>
-							<div class="col-3">
-								<input class="form-control" type="date" id="fecha" 
-								name="consejo_fecha" 
-								th:field="*{fechaPublicacionConsejo}">
-								<div class="text-danger" th:if="${#fields.hasErrors('fechaPublicacionConsejo')}" th:errors="*{fechaPublicacionConsejo}"></div>
+
+							<div class="row mb-3">
+								<label for="contenido" class="col-8 col-form-label">
+									Contenido del Consejo </label>
+								<div class="col-10">
+									<input class="form-control" type="text" id="contenido"
+										name="consejo_contenido" th:field="*{contenidoConsejo}">
+								</div>
+								<div class="text-danger"
+									th:if="${#fields.hasErrors('contenidoConsejo')}"
+									th:errors="*{contenidoConsejo}"></div>
 							</div>
-							
-									
-							<label for="categoria" class="col-2 col-form-label">
-								Categoria
-							</label>
-							<div class="col-3">
-								<select class="form-select" id="categoria" name="consejo_categoria" 
-										th:field="*{categoriaConsejo}">
+
+							<div class="row mb-3">
+								<label for="autor" class="col-8 col-form-label"> Autor </label>
+								<div class="col-10">
+									<input class="form-control" type="text" id="autor"
+										name="consejo_autor" th:field="*{autorConsejo}">
+								</div>
+								<div class="text-danger"
+									th:if="${#fields.hasErrors('autorConsejo')}"
+									th:errors="*{autorConsejo}"></div>
+							</div>
+
+							<div class="row mb-3">
+								<label for="fecha" class="col-2 col-form-label"> Fecha
+									de Public. </label>
+								<div class="col-3">
+									<input class="form-control" type="date" id="fecha"
+										name="consejo_fecha" th:field="*{fechaPublicacionConsejo}">
+									<div class="text-danger"
+										th:if="${#fields.hasErrors('fechaPublicacionConsejo')}"
+										th:errors="*{fechaPublicacionConsejo}"></div>
+								</div>
+
+
+								<label for="categoria" class="col-2 col-form-label">
+									Categoria </label>
+								<div class="col-3">
+									<select class="form-select" id="categoria"
+										name="consejo_categoria" th:field="*{categoriaConsejo}">
 										<option value="">Elegir...</option>
 										<option value="Alimentacion">Alimentacion</option>
 										<option value="Actividad fisica">Actividad fisica</option>
-										<option value="Visitas veterinarias">Visitas veterinarias</option>
+										<option value="Visitas veterinarias">Visitas
+											veterinarias</option>
 										<option value="Entretenimiento">Entretenimiento</option>
-								</select>
-								<div class="text-danger" th:if="${#fields.hasErrors('categoriaConsejo')}" th:errors="*{categoriaConsejo}"></div>
+									</select>
+									<div class="text-danger"
+										th:if="${#fields.hasErrors('categoriaConsejo')}"
+										th:errors="*{categoriaConsejo}"></div>
+								</div>
+
 							</div>
-							
+							<div class="row mb-3">
+								<div class="col-sm-3 text-center">
+									<button class="btn btn-outline-primary" type="submit"
+										th:text="${edicion}?'Modificar':'Guardar'"></button>
+								</div>
+								<div class="col-sm-2">
+									<a th:href="@{/consejo/listado}" class="btn btn-outline-danger">Cancelar</a>
+								</div>
+							</div>
+							<hr class="my-4">
 						</div>
-				        <div class="row mb-3">
-					        <div class="col-sm-3 text-center">
-					        	<button class="btn btn-outline-primary" type="submit" th:text="${edicion}?'Modificar':'Guardar'"></button>
-					        </div>	
-					        <div class="col-sm-2">
-					        	<a th:href="@{/consejo/listado}" class="btn btn-outline-danger">Cancelar</a>
-					        </div>
-				    	</div>		           
-				        <hr class="my-4">
-			          </div>
-			        </form>
+					</form>
 				</div>
 			</div>
-	       </main>
-		</div>	 						
+		</main>
+	</div>
 
-		<footer th:replace="~{layouts/footer :: footer}"></footer>
-	</body>
+	<footer th:replace="~{layouts/footer :: footer}"></footer>
+</body>
 </html>

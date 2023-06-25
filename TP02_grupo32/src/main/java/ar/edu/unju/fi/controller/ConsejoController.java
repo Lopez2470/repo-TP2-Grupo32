@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,7 @@ import jakarta.validation.Valid;
 public class ConsejoController {
 	//Se inyecta la capa intermedia que actuará entre el controlador y la capa model.
 	@Autowired
+	@Qualifier("consejoServiceMysqlImp")
 	private IConsejoService consejoService;
 	
 	@GetMapping("consejo")
@@ -45,8 +47,10 @@ public class ConsejoController {
 	@GetMapping("consejo/nuevo")
 	public String getNuevoConsejo(Model model) {
 		boolean edicion = false;
-		// Genera de forma automatica los codigos de consejo
+		
+		/*// Genera de forma automatica los codigos de consejo
 		consejoService.getConsejo().setCodigoConsejo(consejoService.getConsejos().get(consejoService.getConsejos().size()-1).getCodigoConsejo()+1);
+		*/
 		model.addAttribute("consejo", consejoService.getConsejo());
 		model.addAttribute("edicion", edicion);
 		return"consejos-nuevo";
@@ -75,23 +79,26 @@ public class ConsejoController {
 	 * El método devuelve el objeto buscado para su modificacion 
 	 * y la variable 'edicion' para identificar la accion a realizar.
 	 */
-	@GetMapping("consejo/modificar/{codigoConsejo}")
-	public String getModificarConsejo(Model model, @PathVariable(value = "codigoConsejo") int codigoConsejo) {
+	@GetMapping("consejo/modificar/{id}")
+	public String getModificarConsejo(Model model, @PathVariable(value = "id") Long id) {
 		// Se realiza la busqueda a travez de un método definido en el service.
-		Consejo consejoEncontrado = consejoService.buscarConsejoById(codigoConsejo);
+		Consejo consejoEncontrado = consejoService.getBy(id);
 		boolean edicion=true;
 		model.addAttribute("consejo", consejoEncontrado);
 		model.addAttribute("edicion", edicion);
 		return"consejos-nuevo";
 	}	
+
 	/*
 	 * Método que recibe las modificaciones en el objeto enviado para guardarlos en la lista.
 	 * Si pasa la validacion, el objeto es guardado utillizando el metodo que provee el service.
 	 * En caso contrario, se devuelve a la vista el objeto enviado y
 	 * la variable 'edicion' para identificar la accion en la vista. 
 	 */
+
+	
 	@PostMapping("consejo/modificar")
-	public String modificarConsejo(@Valid @ModelAttribute("consejo") Consejo consejo, BindingResult result, Model model) {
+	public String modificarConsejo(@Valid @ModelAttribute("consejo") Consejo consejo, BindingResult result, Model model) {		
 		if(result.hasErrors()) {
 			model.addAttribute("edicion", true);
 			return "consejos-nuevo";
@@ -100,22 +107,17 @@ public class ConsejoController {
 		consejoService.modificarConsejo(consejo);
 		return "redirect:/consejo/listado";
 	}
+
 	/*
 	 * Método que realiza la eliminacion del objeto.
 	 * La vista envia el valor {codigoConsejo} seleccionado del listado,
 	 * el método buscará este valor para luego borrar este objeto, mediante
 	 * el método proporcionado por el service. 	
 	 */
-	@GetMapping("consejo/eliminar/{codigoConsejo}")
-	public String eliminarConsejo(@PathVariable(value="codigoConsejo") int codigoConsejo) {
+	@GetMapping("consejo/eliminar/{id}")
+	public String eliminarConsejo(@PathVariable(value="id") Long id) {
 		//La eliminación se realiza invocando al metodo definido en el service.
-		consejoService.eliminarConsejo(codigoConsejo);
-		/*for(Consejo conse : consejoService.getConsejos()) {
-			if (conse.getCodigoConsejo() == codigoConsejo) {
-				consejoService.getConsejos().remove(conse);
-				break;
-			}
-		}*/
+		consejoService.eliminar(consejoService.getBy(id));
 		return "redirect:/consejo/listado";
 	}
 }
