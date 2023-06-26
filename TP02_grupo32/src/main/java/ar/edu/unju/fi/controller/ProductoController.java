@@ -1,6 +1,7 @@
 package ar.edu.unju.fi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,21 +13,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import ar.edu.unju.fi.entity.Producto;
+import ar.edu.unju.fi.repository.ICategoriaRepository;
+import ar.edu.unju.fi.service.ICategoriaService;
 import ar.edu.unju.fi.service.IProductoService;
 import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/")
 public class ProductoController {
-	/*
-	@Autowired
-	private ListaProducto listaProductos;
-	@Autowired
-	private Producto producto;
-	*/
 	// Se inyecta la interface que interactuará con el controller
 	@Autowired
+	@Qualifier("productoServiceMysqlImp")
 	private IProductoService productoService;
+	
+	@Autowired
+	private ICategoriaService categoriaService;
+	
 	// Metodo para devolver la pagina inicio de productos
 	@GetMapping("producto")
 	public String getIndex() {
@@ -34,83 +36,62 @@ public class ProductoController {
 	}
 	//Lista los productos cargados en la lista.
 	@GetMapping("producto/listado")
-	/*@GetMapping("/listado")*/
 	public String getListadoProductoPage(Model model) {
 		model.addAttribute("productos", productoService.getProductos());
 		return "productos-listado";
 	}
 	//Metodo que devuelve la vista para la carga de un objeto.
 	@GetMapping("producto/nuevo")
-	/*@GetMapping("/nuevo")*/
 	public String getNuevoProducto(Model model) {
-		productoService.getProducto().setCodigoProducto(productoService.getProductos().get(productoService.getProductos().size()-1).getCodigoProducto()+1);
+		boolean edicion = false;
 		model.addAttribute("producto", productoService.getProducto());
-		return"productos-nuevo";
+		model.addAttribute("categoria", categoriaService.getCategorias());
+		model.addAttribute("edicion", edicion);
+		return "productos-nuevo2";
 	}
 	//Metodo que guarda el objeto validado enviado por la vista.
 	@PostMapping("producto/guardar")
-	/*@PostMapping("/guardar")*/
-	/* public model getGuardarProductoPage(@ModelAttribute("producto")Producto producto){ */
 	public String getGuardarProductoPage(@Valid @ModelAttribute("producto")Producto producto, BindingResult result){
 		ModelAndView modelView = new ModelAndView("productos");
 		if(result.hasErrors()) {
-			modelView.setViewName("productos-nuevo");
-			modelView.addObject("producto", producto);
-			return "productos-nuevo";
+			modelView.setViewName("productos-nuevo2");
+			modelView.addObject("productos", producto);
+			modelView.addObject("edicion", true);
+			modelView.addObject("categoria", categoriaService.getCategorias());
+			return "productos-nuevo2";
 		}
-		/*productoService.getProductos().add(producto);*/
-		productoService.saveProducto(producto);
+		productoService.guardarProducto(producto);
 		modelView.addObject("productos", productoService.getProductos());
-		/*return model;*/
+		
 		return"redirect:/producto/listado";
 	}
 	// Metodo que envia a la vista los datos del objeto seleccionado para modificar.
-	@GetMapping("producto/modificar/{codigoProd}")
-	public String getModificarProductoPage(Model model, @PathVariable(value = "codigoProd") int codigoProd) {
-		/*Producto productoEncontrado = new Producto();
-		for(Producto prod : productoService.getProductos()){
-			if(prod.getCodigoProducto() == codigoProd) {
-				productoEncontrado = prod;
-				break;
-			}
-		} */
-		Producto productoEncontrado = productoService.findProductoById(codigoProd);
+	@GetMapping("producto/modificar/{id}")
+	public String getModificarProductoPage(Model model, @PathVariable(value = "id") Long id) {
+		boolean edicion=true;
+		Producto productoEncontrado = productoService.getBy(id);
 		model.addAttribute("producto", productoEncontrado);
-		return"productos-modificar";
+		model.addAttribute("edicion", edicion);
+		model.addAttribute("categoria", categoriaService.getCategorias());
+		return"productos-nuevo2";
 	}	
 	//Metodo que recibe los datos del objeto a modificar.
 	@PostMapping("producto/modificar")
-	public String modificarProducto(@Valid @ModelAttribute("producto")Producto producto, BindingResult result) {
-			ModelAndView modelView = new ModelAndView("productos");
-			if(result.hasErrors()) {
-				modelView.setViewName("productos-modificar");
-				modelView.addObject("producto", producto);
-				return "productos-modificar";
+	public String modificarProducto(@Valid @ModelAttribute("producto")Producto producto, BindingResult result, Model model) {
+			boolean edicion=true;
+			if(result.hasErrors()) {;
+				model.addAttribute("edicion", edicion);
+				model.addAttribute("categoria", categoriaService.getCategorias());
+				return "productos-nuevo2";
 			}	
-			productoService.modifyProducto(producto);
-			/*
-		for(Producto prod : productoService.getProductos()){
-			if(prod.getCodigoProducto() == producto.getCodigoProducto()) {
-				prod.setNombreProducto(producto.getNombreProducto());
-				prod.setPrecioProducto(producto.getPrecioProducto());
-				prod.setCategoriaProducto(producto.getCategoriaProducto());
-				prod.setDescuentoProducto(producto.getDescuentoProducto());
-				break;
-			}
-		} */
+			productoService.modificarProducto(producto);
 		return"redirect:/producto/listado";
 	}
 	// Metodo que elimina el elemento seleccionado en el listado de la vista.
-	@GetMapping("producto/eliminar/{codigoProducto}")
-	/*@GetMapping("/eliminar/{codigoProducto}")*/
-	public String eliminarProducto(@PathVariable(value="codigoProducto") int codigoProducto) {
-		productoService.deleteProducto(codigoProducto);
-		/*for(Producto prod : productoService.getProductos()) {
-			if (prod.getCodigoProducto() == codigoProducto) {
-				productoService.getProductos().remove(prod);
-				break;
-			}
-		} */
+	@GetMapping("producto/eliminar/{id}")
+	public String eliminarProducto(@PathVariable(value="id") Long id) {
+		/*Cambio en el metodo para eliminar, usando en del repository */
+		productoService.eliminar(productoService.getBy(id));
 		return "redirect:/producto/listado";
 	}
 
