@@ -27,6 +27,8 @@ public interface ISucursalService {
 		//Metodo para eliminar un objeto
 		void eliminarSucursal(int id);
 		
+		public Sucursal getBy (Long id);
 		
+		void eliminar(Sucursal sucursal);
 		
 }
