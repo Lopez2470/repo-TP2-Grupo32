@@ -101,5 +101,17 @@ public class ServicioServiceImp implements IServicioService{
 		}
 		return servicioBuscar;
 	}
+	
+	//Se agregan por contrato los nuevos metodos.
+	@Override
+	public Servicio getBy(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void eliminar(Servicio servicio) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
