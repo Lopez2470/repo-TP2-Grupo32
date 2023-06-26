@@ -16,18 +16,24 @@ public interface IProductoService {
 	Producto getProducto();
 	
 	//Metodo que guarda un nuevo objeto producto.
-	void saveProducto(Producto producto);
+	void guardarProducto(Producto producto);
 	
 	//Metodo que busca un objeto por el atributo codigo del producto
-	public Producto findProductoById(int id);
+	public Producto buscarProductoById(int id);
 
 	//Metodo que busca un objeto por el atriibuto nombre del producto.
-	public Producto findProductoByNombre(String nombre);
+	public Producto buscarProductoByNombre(String nombre);
+	
+	//Metodo que modifica un objeto producto.
+	void modificarProducto(Producto producto);
 	
 	//Metodo que elimina un objeto producto.
-	void modifyProducto(Producto producto);
+	void borrarProducto(int id);
 	
-	//
-	void deleteProducto(int id);
+	//Metodos para la nueva conexion a la base de datos
+	public Producto getBy(Long id);
+	
+	public void eliminar(Producto producto);
+	
 
 }
