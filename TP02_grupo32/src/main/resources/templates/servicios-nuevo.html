@@ -1,72 +1,115 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="es">
-	 <head th:replace="~{layouts/head :: head}">
-	 </head>
-	 <body>
-	    <header th:replace="~{layouts/header :: header}"></header>
-	    <nav th:replace="~{layouts/nav :: nav}"></nav>
-	
-		<div class="container">
-			<main>
-				<div class="row g-5">
-			      <div class="col-md-7 col-lg-8 mx-auto">
-			        <h3 class="mt-5 mb-3" th:text="${edicion}?'Modificar Servicio':'Nuevo Servicio'"></h3>
-			        
-			        <form class="mt-3" th:action="${edicion}?@{/servicio/modificar}:@{/servicio/guardar}" th:object="${servicio}" method="post">
-			          <div class="row g-3">
-			          
-				          <div class="col-sm-6">
-				             <label for="codigo" class="form-label">Código del Servicio</label>
-							 <input type="number" class="form-control" id="codigo" name="servicio-codigo" th:field="*{codigoServ}" readonly="readonly">				             
-				             <!-- 
-				             <input type="number" class="form-control" id="codigo" name="servicio-codigo" th:field="*{codigoServ}" th:readonly="${edicion}?'readonly'">
-				              --> 
-				             <div class="text-danger" th:if="${#fields.hasErrors('codigoServ')}" th:errors="*{codigoServ}"></div>  
-				          </div>		
+<head th:replace="~{layouts/head :: head}">
+</head>
+<body>
+	<header th:replace="~{layouts/header :: header}"></header>
+	<nav th:replace="~{layouts/nav :: nav}"></nav>
 
-		 		          <div class="col-sm-6">
-					           <label for="nombre" class="form-label">Nombre del Servicio</label>
-					            <input type="text" class="form-control" id="nombre" name="servicio-nombre" th:field="*{nombreServ}">
-					           <div class="text-danger" th:if="${#fields.hasErrors('nombreServ')}" th:errors="*{nombreServ}"></div>
-					       </div>
-					            
-					       <div class="col-sm-12">
-					           <label for="descripcion" class="form-label">DescripciÃ³n del Servicio</label>
-					           <input type="text" class="form-control" id="descripcion" name="servicio-descripcion" th:field="*{descripcionServ}">
-					           <div class="text-danger" th:if="${#fields.hasErrors('descripcionServ')}" th:errors="*{descripcionServ}"></div>
-					       </div>
-					       			          
-						   <div class="col-sm-6">
-						        <label for="precio" class="form-label">Precio del Servicio</label>
-						        <input type="number" class="form-control" id="precio" name="servicio-precio" th:field="*{precioServ}">
-						        <div class="text-danger" th:if="${#fields.hasErrors('precioServ')}" th:errors="*{precioServ}"></div>    
-						   </div>
-						        
-					   	   <div class="col-md-4">
-							    <label for="categoria" class="form-label">CategorÃ­a del Servicio</label>
-					            <select class="form-select" id="categoria" name="servicio-categoria" th:field="*{categoriaServ}">
-							         <option value="">Elegir...</option>
-						             <option value="hora">Por Horas</option>
-						    		 <option value="tarea">Por Tarea</option>
-						        </select>
-						        <div class="text-danger" th:if="${#fields.hasErrors('categoriaServ')}" th:errors="*{categoriaServ}"></div>
-							</div>				 
-				        
-				            <div class="row mb-3">
-						        <div class="col-sm-3 text-center">
-						        	<button class="btn btn-outline-primary" type="submit" th:text="${edicion}?'Modificar':'Guardar'"></button>
-						        </div>	
-						        <div class="col-sm-2">
-						        <a th:href="@{/servicio/listado}" class="btn btn-outline-danger">Cancelar</a>
-						        </div>
-				    		</div>		           
-				            <hr class="my-4">
-			          </div>
-			        </form>
+	<div class="container">
+		<main>
+			<div class="row g-5">
+				<div class="col-md-7 col-lg-8 mx-auto">
+					<h3 class="mt-5 mb-3"
+						th:text="${edicion}?'Modificar Servicio':'Nuevo Servicio'"></h3>
+
+					<form class="mt-3"
+						th:action="${edicion}?@{/servicio/modificar}:@{/servicio/guardar}"
+						th:object="${servicio}" method="post">
+						<div class="row g-3">
+
+
+							<div class="col-sm-6 d-none">
+								<label for="id" class="form-label">NRO de ID</label> <input
+									type="number" class="form-control" id="id" name="servicio-id"
+									th:field="*{id}" readonly="readonly">
+							</div>
+
+							<div class="col-sm-6">
+								<label for="codigo" class="form-label">Código del
+									Servicio</label> <input type="number" class="form-control" id="codigo"
+									name="servicio-codigo" th:field="*{codigoServ}">
+								<div class="text-danger"
+									th:if="${#fields.hasErrors('codigoServ')}"
+									th:errors="*{codigoServ}"></div>
+							</div>
+
+							<div class="col-sm-6">
+								<label for="nombre" class="form-label">Nombre del
+									Servicio</label> <input type="text" class="form-control" id="nombre"
+									name="servicio-nombre" th:field="*{nombreServ}">
+								<div class="text-danger"
+									th:if="${#fields.hasErrors('nombreServ')}"
+									th:errors="*{nombreServ}"></div>
+							</div>
+
+							<div class="col-sm-12">
+								<label for="descripcion" class="form-label">Descripción
+									del Servicio</label> <input type="text" class="form-control"
+									id="descripcion" name="servicio-descripcion"
+									th:field="*{descripcionServ}">
+								<div class="text-danger"
+									th:if="${#fields.hasErrors('descripcionServ')}"
+									th:errors="*{descripcionServ}"></div>
+							</div>
+
+							<div class="col-sm-6">
+								<label for="precio" class="form-label">Precio del
+									Servicio</label> <input type="number" class="form-control" id="precio"
+									name="servicio-precio" th:field="*{precioServ}">
+								<div class="text-danger"
+									th:if="${#fields.hasErrors('precioServ')}"
+									th:errors="*{precioServ}"></div>
+							</div>
+
+							<div class="col-md-4">
+								<label for="categoria" class="form-label">Categoría del
+									Servicio</label> <select class="form-select" id="categoria"
+									name="servicio-categoria" th:field="*{categoriaServ}">
+									<option value="">Elegir...</option>
+									<option value="hora">Por Horas</option>
+									<option value="tarea">Por Tarea</option>
+								</select>
+								<div class="text-danger"
+									th:if="${#fields.hasErrors('categoriaServ')}"
+									th:errors="*{categoriaServ}"></div>
+							</div>
+							
+							<div class="col-md-4 mb-6">
+								<label for="empleado" class="form-label">Empleado</label> 
+									
+								<select class="form-select" id="empleado" name="producto-empleado" 
+									th:field="*{empleado}">
+									
+									<option th:each="empleados : ${empleado}"
+									th:text="${empleados.apellidoEmp} + ${', '}+ ${empleados.nombreEmp}"
+									th:value="${empleados.id}"></option>
+									
+									<div class="text-danger" th:if="${#fields.hasErrors('empleado')}"
+										th:errors="*{empleado}">
+									</div>			
+									
+								</select>
+								
+							</div>
+
+							<div class="row mb-3 ">
+								<div class="col-sm-3 text-center">
+									<button class="btn btn-outline-primary" type="submit"
+										th:text="${edicion}?'Modificar':'Guardar'"></button>
+								</div>
+								<div class="col-sm-2">
+									<a th:href="@{/servicio/listado}"
+										class="btn btn-outline-danger">Cancelar</a>
+								</div>
+							</div>
+							<hr class="my-4">
+						</div>
+					</form>
 				</div>
 			</div>
 		</main>
-	</div>	 		
+	</div>
 	<footer th:replace="~{layouts/footer :: footer}"></footer>
-	</body>
+</body>
 </html>
