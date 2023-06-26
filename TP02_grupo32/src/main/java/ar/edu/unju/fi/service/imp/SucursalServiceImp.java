@@ -95,5 +95,15 @@ public class SucursalServiceImp implements ISucursalService{
 		}
 		getSucursals().remove(sucurEncontrada);
 	}
+	@Override
+	public Sucursal getBy(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void eliminar(Sucursal sucursal) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
