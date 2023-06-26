@@ -22,4 +22,16 @@ public interface IServicioService {
 	//Busca un objeto por el atributo nombre de servicio
 	public Servicio buscarServicioByNombre(String nombre);
 	
+	/**
+	 * Metodos nuevos incorporados para la utilizacion 
+	 * en la conexion a la base de datos.
+	 */
+	//Metodo para buscar a partir el atributo Id
+	public Servicio getBy(Long id);
+	/**
+	 * Metodo para eliminar un registro seleccionado
+	 * Se recibe como parametro un objeto al cual se
+	 * le cambia el valor del atributo 'estado' a false.
+	 */
+	public void eliminar(Servicio servicio);
 }
