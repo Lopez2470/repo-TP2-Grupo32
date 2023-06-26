@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import ar.edu.unju.fi.entity.Producto;
 import ar.edu.unju.fi.listas.ListaProducto;
 import ar.edu.unju.fi.service.IProductoService;
-@Service
+@Service("productoServiceImp")
 public class ProductoServiceImp implements IProductoService{
 	
 	@Autowired
@@ -31,7 +31,7 @@ public class ProductoServiceImp implements IProductoService{
 
 	//Metodo que recibe un objeto producto para ser guardado en la lista.
 	@Override
-	public void saveProducto(Producto producto) {
+	public void guardarProducto(Producto producto) {
 		getProductos().add(producto);	
 	}
 
@@ -40,7 +40,7 @@ public class ProductoServiceImp implements IProductoService{
 	 *Devuelve el objeto encontrado. 
 	 */
 	@Override
-	public Producto findProductoById(int id) {
+	public Producto buscarProductoById(int id) {
 		Producto productSaved = new Producto();
 		for (Producto prod : getProductos()) {
 			if (prod.getCodigoProducto() == id) {
@@ -56,7 +56,7 @@ public class ProductoServiceImp implements IProductoService{
 	 *Devuelve el objeto encontrado. 
 	 */ 
 	@Override
-	public Producto findProductoByNombre(String nombre) {
+	public Producto buscarProductoByNombre(String nombre) {
 		Producto productSaved = new Producto();
 		for (Producto prod : getProductos()) {
 			if (prod.getNombreProducto().equals(nombre)) {
@@ -73,7 +73,7 @@ public class ProductoServiceImp implements IProductoService{
 	 *guarda las modificaciones realizadas al objeto. 
 	 */
 	@Override
-	public void modifyProducto(Producto producto) {
+	public void modificarProducto(Producto producto) {
 		Producto productSaved = new Producto();
 		for (Producto prod : getProductos()) {
 			if (prod.getCodigoProducto() == producto.getCodigoProducto()) {
@@ -83,7 +83,7 @@ public class ProductoServiceImp implements IProductoService{
 		}
 		productSaved.setNombreProducto(producto.getNombreProducto());
 		productSaved.setPrecioProducto(producto.getPrecioProducto());
-		productSaved.setCategoriaProducto(producto.getCategoriaProducto());
+		/*productSaved.setCategoriaProducto(producto.getCategoriaProducto());*/
 		productSaved.setDescuentoProducto(producto.getDescuentoProducto());	
 	}
 
@@ -93,7 +93,7 @@ public class ProductoServiceImp implements IProductoService{
 	 *y elimina el objeto encontrado. 
 	 */
 	@Override
-	public void deleteProducto(int id) {
+	public void borrarProducto(int id) {
 		Producto productSaved = new Producto();
 		for (Producto prod : getProductos()) {
 			if (prod.getCodigoProducto() == id) {
@@ -102,6 +102,22 @@ public class ProductoServiceImp implements IProductoService{
 			}
 		}
 		getProductos().remove(productSaved);
+		
+	}
+
+	/**
+	 * Metodos agregados para interactuar con la base de datos y CrudRepository
+	 */
+	
+	@Override
+	public Producto getBy(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void eliminar(Producto producto) {
+		// TODO Auto-generated method stub
 		
 	}
 
