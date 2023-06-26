@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import ar.edu.unju.fi.entity.Consejo;
 import ar.edu.unju.fi.entity.Sucursal;
 import ar.edu.unju.fi.listas.ListaSucursal;
+import ar.edu.unju.fi.service.IProvinciaService;
 import ar.edu.unju.fi.service.ISucursalService;
 import jakarta.validation.Valid;
 
@@ -25,6 +26,9 @@ public class SucursalController {
 		//Inyección a la interface que interactua con el controller
 		@Autowired
 		private ISucursalService sucursalService;
+		
+		@Autowired
+		private IProvinciaService provinciaService;
 		
 		/*
 		@Autowired
@@ -61,42 +65,21 @@ public class SucursalController {
 			return modelView;
 		}
 		
-		@GetMapping("/modificar/{nombre}")
-		public String getModificarSucursalPage(Model model, @PathVariable(value="nombre") String nombre){
-			
-			/*for(Sucursal sucu : sucursalService.getSucursals()) {
-				if(sucu.getNombre().equals(nombre)) {
-					sucursalEncontrada= sucu;
-					break;
-				}
-			}
-			 */
-			Sucursal sucursalEncontrada = sucursalService.buscarSucursalNombre(nombre);
-			boolean edicion = true;
-			model.addAttribute("sucursal", sucursalEncontrada);
+		@GetMapping("/modificar/{id}")
+		public String getModificarSucursalPage(Model model, @PathVariable(value="id") Long id){
+			boolean edicion=true;
+			model.addAttribute("sucursal",sucursalService.getBy(id));
+			model.addAttribute("provincia", provinciaService.getProvincias());
 			model.addAttribute("edicion", edicion);
 			return "nueva_sucursal";
 		}
 		
-
-		
-		/*
-		 @PostMapping("consejo/modificar")
-	public String modificarConsejo(@Valid @ModelAttribute("consejo") Consejo consejo, BindingResult result) {
-		ModelAndView modelView = new ModelAndView("consejos");
-		if(result.hasErrors()) {
-			modelView.setViewName("consejos-nuevo");
-			modelView.addObject("consejo", consejo);
-			return "consejos-nuevo";
-		}
-		 */
-		
 		@PostMapping("/modificar")
-		public String modificarSucursal(@Valid @ModelAttribute("sucursal")Sucursal sucursal, BindingResult result) {
-			ModelAndView modelView = new ModelAndView("sucursales");
+		public String modificarSucursal(@Valid @ModelAttribute("sucursal")Sucursal sucursal, BindingResult result, Model model) {
+			//ModelAndView modelView = new ModelAndView("sucursales");
 			if(result.hasErrors()) {
-				modelView.setViewName("nueva_sucursal");
-				modelView.addObject("sucursal", sucursal);
+				model.addAttribute("edicion", true);
+				model.addAttribute("sucursal", sucursalService.getSucursal());
 				return "nueva_sucursal";
 			}
 			sucursalService.modificarSucursal(sucursal);
@@ -111,10 +94,10 @@ public class SucursalController {
 			}*/
 			return "redirect:/sucursal/listado" ;
 		}
-		
-		@GetMapping("/eliminar/{codigo}")
-		public String eliminarSucursal(@PathVariable(value="codigo")int codigo) {
-			sucursalService.eliminarSucursal(codigo);
+	
+		@GetMapping("/eliminar/{id}")
+		public String eliminarSucursal(@PathVariable(value="id")Long id) {
+			sucursalService.eliminar(sucursalService.getBy(id));
 			/*for(Sucursal sucu: sucursalService.getSucursals()) {
 				if(sucu.getCodigo().equals(codigo)) {
 					sucursalService.getSucursals().remove(sucu);
@@ -123,6 +106,5 @@ public class SucursalController {
 			}*/
 			return "redirect:/sucursal/listado";
 		}
-	
 }
 
