@@ -26,11 +26,11 @@
 						<td th:text="${produ.codigoProducto}"></td>
 						<td th:text="${produ.nombreProducto}"></td>
 						<td th:text="${produ.precioProducto}"></td>
-						<td th:text="${produ.categoriaProducto}"></td>
+						<td th:text="${produ.categoria.descripcion}"></td>
 						<td th:text="${produ.calcularDescuento()}"></td>
 						<td>
-							<a th:href="@{/producto/modificar/}+${produ.codigoProducto}" class="btn btn btn-outline-success btn-sm">Editar</a>
-							<a th:href="@{/producto/eliminar/}+ ${produ.codigoProducto}" class="btn btn btn-outline-danger btn-sm">Eliminar</a>
+							<a th:href="@{/producto/modificar/}+ ${produ.id}" class="btn btn btn-outline-success btn-sm">Editar</a>
+							<a th:href="@{/producto/eliminar/}+ ${produ.id}" class="btn btn btn-outline-danger btn-sm">Eliminar</a>
 						</td>
 					</tr>
 				</table>

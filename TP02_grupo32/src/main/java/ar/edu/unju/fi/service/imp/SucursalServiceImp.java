@@ -41,7 +41,7 @@ public class SucursalServiceImp implements ISucursalService{
 	public Sucursal buscarSucursalId(int id) {
 		Sucursal sucurEncontrada = new Sucursal();
 		for (Sucursal sucu : getSucursals()) {
-			if (sucu.getCodigo() == id) {
+			if (sucu.getId() == id) {
 				sucurEncontrada = sucu;
 				break;
 			}
@@ -70,7 +70,7 @@ public class SucursalServiceImp implements ISucursalService{
 	public void modificarSucursal(Sucursal sucursal) {
 		Sucursal sucurEncontrada = new Sucursal();
 		for (Sucursal sucu : getSucursals()) {
-			if (sucu.getCodigo() == sucursal.getCodigo()) {
+			if (sucu.getId() == sucursal.getId()) {
 				sucurEncontrada = sucu;
 				break;
 			}
@@ -88,12 +88,22 @@ public class SucursalServiceImp implements ISucursalService{
 	public void eliminarSucursal(int id) {
 		Sucursal sucurEncontrada = new Sucursal();
 		for (Sucursal sucu : getSucursals()) {
-			if (sucu.getCodigo() == id) {
+			if (sucu.getId() == id) {
 				sucurEncontrada = sucu;
 				break;
 			}
 		}
 		getSucursals().remove(sucurEncontrada);
+	}
+	@Override
+	public Sucursal getBy(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public void eliminar(Sucursal sucursal) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
