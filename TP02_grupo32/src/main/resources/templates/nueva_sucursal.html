@@ -12,16 +12,15 @@
     	 		<div class="col-md-7 col-lg-8  mx-auto">
     	 			<h3 class="mt-5 mb-3" th:text="${edicion}?'Modificar Sucursal':'Nueva Sucursal'"></h3>
     	 			<form class="mt-5 mb-3" th:action="${edicion}?@{/sucursal/modificar}:@{/sucursal/guardar}" th:object="${sucursal}" method="post">
-    	 				<div class="col-sm-8">
-				             <label for="codigo" class="col-4 col-form-label">Código de Sucursal</label>
-				             <div class="col-8">
-								<input class="form-control" type="number" id="codigo" 
-								name="sucursal-codigo" th:field="*{codigo}" 
-								th:readonly="${edicion}?'readonly'">
-							 </div>
-							 <div class="text-danger" th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></div>
-				          </div>
-				          
+    	 				<div class="row g-3">
+    	 				<!-- <div class="col-sm-8 d-none" >  -->
+    	 				<div class="col-sm-8 " >
+								<label for="id" class="col-4 col-form-label"> NRO de ID</label>
+								<div class="col-8" >
+									<input class="form-control" type="number" id="id" name="sucursal-id" th:field="*{id}" readonly>
+								</div>
+						</div>
+    	 				  	 						          
 				          <div class="row mb-3">
 							<label for="nombre" class="col-8 col-form-label">Nombre de Sucursal</label>
 							<div class="col-10">
@@ -45,14 +44,16 @@
 							<div class="col-3">
 								<select class="form-select" id="provincia" name="sucursal-provincia" 
 										th:field="*{provincia}">
-										<option value="">Elegir...</option>
-										<option value="Jujuy">Jujuy</option>
-										<option value="Salta">Salta</option>
-										<option value="Tucumán">Tucumán</option>
+										<option th:each="provincias : ${provincias}" 
+										th:text="${provincias.nombre}"
+										th:value="${provincias.nombre}">
+										</option>							
+										
 								</select>
 								<div class="text-danger" th:if="${#fields.hasErrors('provincia')}" th:errors="*{provincia}"></div>
-							</div>
+							</div>														
 							
+						
 							<label for="fecha" class="col-2 col-form-label">Fecha de Public.</label>
 							<div class="col-3">
 								<input class="form-control" type="date" id="fecha" 
@@ -60,7 +61,7 @@
 								th:field="*{fechaInicio}">
 								<div class="text-danger" th:if="${#fields.hasErrors('fechaInicio')}" th:errors="*{fechaInicio}"></div>
 							</div>
-							
+							</div>
 							<div class="row mb-3">
 								<label for="e-mail" class="col-8 col-form-label">E-mail</label>
 								<div class="col-10">
@@ -89,6 +90,7 @@
 						        </div>
 					    	</div>		           
 				      		<hr class="my-4">
+						</div>
 						</div>
     	 			</form>
     	 		</div>

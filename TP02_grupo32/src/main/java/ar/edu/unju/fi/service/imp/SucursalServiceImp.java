@@ -8,7 +8,7 @@ import ar.edu.unju.fi.entity.Sucursal;
 import ar.edu.unju.fi.listas.ListaSucursal;
 import ar.edu.unju.fi.service.ISucursalService;
 
-@Service
+@Service("alumnoService")
 public class SucursalServiceImp implements ISucursalService{
 
 	@Autowired
