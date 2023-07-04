@@ -10,7 +10,7 @@ import ar.edu.unju.fi.repository.ISucursalRepository;
 import ar.edu.unju.fi.service.ISucursalService;
 import jakarta.validation.Valid;
 
-@Service("alumnoServiceMysql")
+@Service("sucursalServiceMysql")
 public class SucursalServiceMysqlImp implements ISucursalService {
 
 	@Autowired
@@ -36,7 +36,8 @@ public class SucursalServiceMysqlImp implements ISucursalService {
 	}
 
 	@Override
-	public void guardarSucursal(@Valid Sucursal sucursal) {
+	public void guardarSucursal(Sucursal sucursal) {
+		sucursal.setEstado(true);
 		sucursalRepository.save(sucursal);
 	}
 	

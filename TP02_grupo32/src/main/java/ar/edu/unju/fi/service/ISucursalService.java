@@ -22,7 +22,7 @@ public interface ISucursalService {
 		void modificarSucursal(Sucursal sucursal);
 		
 		//Metodo que recibe una sucursal y guarda en la lista.
-		void guardarSucursal(@Valid Sucursal sucursal);
+		void guardarSucursal(Sucursal sucursal);
 		
 		//Metodo para eliminar un objeto
 		void eliminarSucursal(int id);
